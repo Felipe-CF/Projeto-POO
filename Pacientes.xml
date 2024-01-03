@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfPaciente xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Paciente>
+    <id>1</id>
+    <nome>F</nome>
+    <nasc>1997-09-12T00:00:00</nasc>
+    <endereco>r</endereco>
+    <contato>b@</contato>
+    <senha>1</senha>
+  </Paciente>
+</ArrayOfPaciente>

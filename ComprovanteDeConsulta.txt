@@ -1,0 +1,5 @@
+Consulta 10
+Código do Paciente: 1      Código do Médico: 4
+Marcada para o dia 04/01/2024
+Situação: marcada
+
