@@ -170,9 +170,10 @@ namespace Projeto{
             foreach(Consulta obj in consultas){
                 Paciente p = nP.Listar(obj.idPaciente);
                 Medico m = nM.Listar(obj.idMedico);
-                Console.WriteLine($"Id Consulta:{obj.id}");
+                Console.WriteLine($"\nId Consulta:{obj.id}");
                 Console.WriteLine(p);
-                Console.WriteLine(m);
+                Console.WriteLine($"Medico(a):{m.id} - {m.nome}   CRM:{m.crm}\ncontato = {m.contato}");
+                Console.WriteLine($"Situação:{obj.status}");
                 }
             Console.WriteLine(" ----------------------------------------------------- \n");
         }

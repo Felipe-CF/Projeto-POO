@@ -13,7 +13,7 @@ namespace Projeto{
     public string contato{get;set;}
     public string senha{get;set;}
     public override string ToString(){
-        return $"Paciente:{nome}  Nascimento:{nasc.ToString("dd/MM/yyyy")}\nEndereço: {endereco}  Contato:{contato}";
+        return $"Paciente:{id} - {nome}  Nascimento:{nasc.ToString("dd/MM/yyyy")}\nEndereço: {endereco}  Contato:{contato}";
     }
 }
 

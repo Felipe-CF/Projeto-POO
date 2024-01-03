@@ -12,7 +12,7 @@ namespace Projeto{
     public string senha{get;set;}
     public string contato{get;set;}
     public int idEspecialidade{get; set;}
-    public override string ToString() {return $"{id} - {nome}   CRM:{crm}\nsenha = {senha} contato = {contato}";}
+    public override string ToString() {return $"Medico(a):{id} - {nome}   CRM:{crm}\nsenha = {senha} contato = {contato}";}
 }
 // Id Especialidade:{idEspecialidade}
 class NMedico : NRegistros<Medico>{

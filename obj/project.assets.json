@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\OMoral\\Downloads\\Clinica\\Projeto.csproj",
+      "projectUniqueName": "C:\\Users\\OMoral\\Downloads\\Projeto-POO\\Projeto.csproj",
       "projectName": "Projeto",
-      "projectPath": "C:\\Users\\OMoral\\Downloads\\Clinica\\Projeto.csproj",
+      "projectPath": "C:\\Users\\OMoral\\Downloads\\Projeto-POO\\Projeto.csproj",
       "packagesPath": "C:\\Users\\OMoral\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\OMoral\\Downloads\\Clinica\\obj\\",
+      "outputPath": "C:\\Users\\OMoral\\Downloads\\Projeto-POO\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\OMoral\\AppData\\Roaming\\NuGet\\NuGet.Config"
