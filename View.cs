@@ -149,10 +149,12 @@ namespace  Projeto{
         NConsulta nC = new NConsulta();
         List<Consulta> consultas = nC.Listar();
         consultas.Reverse();
+        NPaciente nP = new NPaciente();
+        NMedico nM = new NMedico();
         foreach(Consulta obj in consultas)
-            if(obj.idPaciente == UserId && obj.data == data){
+            if(obj.idPaciente == UserId && obj.data == data && obj.status == "marcada"){
                 using(StreamWriter f = new StreamWriter("ComprovanteDeConsulta.txt"))
-                    f.WriteLine(obj.ToString());
+                    f.WriteLine($"Consulta:{obj.id}\nPaciente:{nP.Listar(UserId).nome}  Data de Nascimento:{nP.Listar(obj.idPaciente).nasc.ToString("dd/MM/yyyy")}\nData do agendamento:{DateTime.Now}  Data da consulta:{obj.data.ToString("dd/MM/yyyy")}\nMédico(a):{nM.Listar(obj.idMedico).nome}  CRM:{nM.Listar(obj.idMedico).crm}\nSituação:{obj.status}");
                 break;  
             }
     }
@@ -174,11 +176,12 @@ namespace  Projeto{
             NConsulta nC = new NConsulta();
             List<Consulta> consultas = nC.Listar();
             NPaciente nP = new NPaciente();
+            NMedico nM = new NMedico();
             consultas.Reverse();
-            foreach(Consulta obj in consultas) 
-                if(idU == obj.idPaciente && obj.status == "realizada") {
-                    return $"ID paciente: {obj.idPaciente} ID paciente: {obj.idMedico}\nRequisição: {obj.requisicao}";
-                }
+            foreach(Consulta obj in consultas){
+                if(idU == obj.idPaciente && obj.status == "realizada") 
+                    return $"Código paciente:{obj.idPaciente}   Nome:{nP.Listar(obj.idPaciente).nome}   Data de Nascimento:{nP.Listar(obj.idPaciente).nasc.ToString("dd/MM/yyyy")}\nCódigo Médico:{obj.idMedico}   Médico(a):{nM.Listar(obj.idMedico).nome}   CRM:{nM.Listar(obj.idMedico).crm}\nData da Consulta:{obj.data.ToString("dd/MM/yyyy")}   Requisição: {obj.requisicao}";
+            } 
         } catch(FileNotFoundException){}
         return $"Sem consultas realizadas";
     }

@@ -1,5 +1,5 @@
-Consulta 4
-Código do Paciente: 3      Código do Médico: 5
-Marcada para o dia 04/01/2024
-Situação: marcada
-
+Consulta:6
+Paciente:MARIA lUCIA  Data de Nascimento:26/06/1967
+Data do agendamento:03/01/2024 21:59:46  Data da consulta:06/01/2024
+Médico(a):Fausto Silva  CRM:1000
+Situação:marcada

@@ -384,7 +384,7 @@ namespace Projeto{
             } while(true);
             Consulta consultaDaVez = View.ConsultaIniciar(user.id, idP, data1);
             if(consultaDaVez != null){
-                View.AlterarConsulta(View.Consulta(consultaDaVez/*, user*/));
+                View.AlterarConsulta(View.Consulta(consultaDaVez));
                 Console.WriteLine("Consulta finalizada");
             }
             else{Console.WriteLine("Não foi possível realizar a consulta. Tente novamente.");}

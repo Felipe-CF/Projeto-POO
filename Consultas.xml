@@ -36,4 +36,18 @@
     <anamnese>calafrios</anamnese>
     <requisicao>dipirona de 08 em 08 horas </requisicao>
   </Consulta>
+  <Consulta>
+    <id>5</id>
+    <idPaciente>3</idPaciente>
+    <idMedico>7</idMedico>
+    <status>marcada</status>
+    <data>2024-01-05T00:00:00</data>
+  </Consulta>
+  <Consulta>
+    <id>6</id>
+    <idPaciente>3</idPaciente>
+    <idMedico>7</idMedico>
+    <status>marcada</status>
+    <data>2024-01-06T00:00:00</data>
+  </Consulta>
 </ArrayOfConsulta>
