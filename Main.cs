@@ -434,15 +434,13 @@ namespace Projeto{
         }
 
         public static void ChecarHistoricoPaciente(Medico user){
-            ListarTodosPacientes();
-            Console.Write("Informe o id do paciente: ");
-            int idP = int.Parse(Console.ReadLine());
-            List<Consulta> consultas = View.TodosOsHistoricos();
-            Console.WriteLine(" ------ Histórico do paciente ------ ");
-            foreach(Consulta obj in consultas)
-                if(obj.idPaciente == idP && obj.idMedico == user.id && obj.status == "realizada")
-                    Console.WriteLine($"Data da Consulta:{obj.data.ToString("dd/MM/yyyy")}\nAnamnese: {obj.anamnese}\nRequisição: {obj.requisicao}\n");
-            Console.WriteLine("-------------------------------------\n");
+            View.HistoricoDoPaciente(user.id);
+            // List<Consulta> consultas = View.TodosOsHistoricos();
+            // Console.WriteLine(" ------ Histórico do paciente ------ ");
+            // foreach(Consulta obj in consultas)
+            //     if(obj.idPaciente == idP && obj.idMedico == user.id && obj.status == "realizada")
+            //         Console.WriteLine($"Data da Consulta:{obj.data.ToString("dd/MM/yyyy")}\nAnamnese: {obj.anamnese}\nRequisição: {obj.requisicao}\n");
+            // Console.WriteLine("-------------------------------------\n");
         }
 
         public static void MostrarDados(Medico user){

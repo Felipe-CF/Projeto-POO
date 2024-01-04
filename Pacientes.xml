@@ -2,10 +2,26 @@
 <ArrayOfPaciente xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Paciente>
     <id>1</id>
-    <nome>F</nome>
+    <nome>Felipe</nome>
     <nasc>1997-09-12T00:00:00</nasc>
-    <endereco>r</endereco>
-    <contato>b@</contato>
-    <senha>1</senha>
+    <endereco>Rua Engenheiro</endereco>
+    <contato>eu@gmail.com</contato>
+    <senha>1234</senha>
+  </Paciente>
+  <Paciente>
+    <id>2</id>
+    <nome>Bruno</nome>
+    <nasc>2000-02-13T00:00:00</nasc>
+    <endereco>Rua B</endereco>
+    <contato>b@gmail</contato>
+    <senha>1235</senha>
+  </Paciente>
+  <Paciente>
+    <id>3</id>
+    <nome>MARIA lUCIA</nome>
+    <nasc>1967-06-26T00:00:00</nasc>
+    <endereco>rUA eNGENHEIRO</endereco>
+    <contato>lcosta@gmail.com</contato>
+    <senha>12345</senha>
   </Paciente>
 </ArrayOfPaciente>

@@ -173,6 +173,7 @@ namespace  Projeto{
         try{
             NConsulta nC = new NConsulta();
             List<Consulta> consultas = nC.Listar();
+            NPaciente nP = new NPaciente();
             consultas.Reverse();
             foreach(Consulta obj in consultas) 
                 if(idU == obj.idPaciente && obj.status == "realizada") {
@@ -239,9 +240,22 @@ namespace  Projeto{
     public static void ListarTodasAsMinhasConsultas(int idP){
         NConsulta nC = new NConsulta();
         List<Consulta> consultas = nC.Listar();
-        Console.WriteLine("----------- Seu histórico de consultas ---------- ");
-        foreach(Consulta obj in consultas)
-            if(idP == obj.idPaciente) Console.WriteLine(obj);
+        NEspecialidade nE = new NEspecialidade();
+        Especialidade e;
+        NMedico nM = new NMedico();
+        Medico m;
+        int q = 0;
+        Console.WriteLine("\n----------- Seu histórico de consultas ---------- ");
+        foreach(Consulta obj in consultas){
+            if(idP == obj.idPaciente) {   
+                ++q;
+                m = nM.Listar(obj.idMedico);
+                e = nE.Listar(m.idEspecialidade);
+                Console.WriteLine($"Consulta {q}    ID:{obj.id}");
+                Console.WriteLine($"Médico(a):{m.nome}  Especialidade:{e.nomeEsp}   CRM:{m.crm}");
+                Console.WriteLine($"Data da consulta:{obj.data.ToString("dd/MM/yyyy")}  Situação:{obj.status}\n");
+            }
+        }
         Console.WriteLine("--------------------------------------------------\n");
     }
 
@@ -281,7 +295,7 @@ namespace  Projeto{
 
     public static Consulta Consulta(Consulta consultA){
             Console.WriteLine(" ------ Consulta iniciada ------ ");
-            HistoricoDoPaciente(consultA.idMedico);
+            //
             Console.WriteLine("Digite aqui a Anamnese: ");
             string a = Console.ReadLine();
             Console.WriteLine("Digite aqui a Requisição: ");
@@ -296,10 +310,18 @@ namespace  Projeto{
             Console.Write("Informe o id do paciente: ");
             int idP = int.Parse(Console.ReadLine());
             List<Consulta> consultas = View.TodosOsHistoricos();
-            Console.WriteLine(" ------ Histórico do paciente ------ ");
+            NPaciente nP = new NPaciente();
+            int q = 0;
+            Console.WriteLine($"\n ------ Histórico do(a) paciente {nP.Listar(idP).nome}------ ");
             foreach(Consulta obj in consultas)
-                if(obj.idPaciente == idP && obj.idMedico == idM && obj.status == "realizada") Console.WriteLine(obj);
-            Console.WriteLine("-------------------------------------\n");
+                if(obj.idPaciente == idP && obj.idMedico == idM && obj.status == "realizada") {
+                    ++q;
+                Console.WriteLine($"Consulta {q}    ID:{obj.id}");
+                Console.WriteLine($"Data da consulta:{obj.data.ToString("dd/MM/yyyy")}");
+                Console.WriteLine($"Anamnese:{obj.anamnese}");
+                Console.WriteLine($"Requisição:{obj.requisicao}\n");
+                }
+            Console.WriteLine("-------------------------------------------------------------\n");
         }
 
     public static void AlterarConsulta(Consulta consultA){

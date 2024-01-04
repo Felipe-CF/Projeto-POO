@@ -22,56 +22,18 @@
     <id>3</id>
     <idPaciente>1</idPaciente>
     <idMedico>9</idMedico>
-    <status>marcada</status>
+    <status>realizada</status>
     <data>2024-01-03T00:00:00</data>
+    <anamnese>Paciente esta biruleibe das ideias</anamnese>
+    <requisicao>Recomendo que durma mais cedo</requisicao>
   </Consulta>
   <Consulta>
-    <id>8</id>
-    <idPaciente>1</idPaciente>
-    <idMedico>7</idMedico>
-    <status>marcada</status>
-    <data>2024-02-10T00:00:00</data>
-  </Consulta>
-  <Consulta>
-    <id>9</id>
-    <idPaciente>1</idPaciente>
-    <idMedico>7</idMedico>
-    <status>marcada</status>
-    <data>2024-03-10T00:00:00</data>
-  </Consulta>
-  <Consulta>
-    <id>10</id>
-    <idPaciente>1</idPaciente>
-    <idMedico>7</idMedico>
-    <status>marcada</status>
-    <data>2024-05-10T00:00:00</data>
-  </Consulta>
-  <Consulta>
-    <id>11</id>
+    <id>4</id>
     <idPaciente>3</idPaciente>
-    <idMedico>10</idMedico>
-    <status>marcada</status>
-    <data>2024-04-04T00:00:00</data>
-  </Consulta>
-  <Consulta>
-    <id>12</id>
-    <idPaciente>3</idPaciente>
-    <idMedico>10</idMedico>
-    <status>marcada</status>
-    <data>2024-06-04T00:00:00</data>
-  </Consulta>
-  <Consulta>
-    <id>13</id>
-    <idPaciente>3</idPaciente>
-    <idMedico>10</idMedico>
-    <status>marcada</status>
-    <data>2024-08-04T00:00:00</data>
-  </Consulta>
-  <Consulta>
-    <id>10</id>
-    <idPaciente>1</idPaciente>
-    <idMedico>4</idMedico>
-    <status>marcada</status>
+    <idMedico>5</idMedico>
+    <status>realizada</status>
     <data>2024-01-04T00:00:00</data>
+    <anamnese>calafrios</anamnese>
+    <requisicao>dipirona de 08 em 08 horas </requisicao>
   </Consulta>
 </ArrayOfConsulta>

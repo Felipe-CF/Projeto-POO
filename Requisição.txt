@@ -1,2 +1,2 @@
-ID paciente: 4 ID paciente: 7
-Requisição: Tomar 2 comprimidos de AS e ingerir bastante agua
+ID paciente: 3 ID paciente: 5
+Requisição: dipirona de 08 em 08 horas 
