@@ -49,10 +49,10 @@ namespace Projeto{
     
     public void Inserir(Paciente novoObjeto){
           AbrirPacienteXml(); // abro registro
-          int id = 0;
-          foreach(Paciente objeto in objetos) // defino o id
+          int id = objetos.Count+1;
+          if(id == objetos.Last().id)
                id++;
-          novoObjeto.id = ++id;
+          novoObjeto.id = id;
           objetos.Add(novoObjeto);
           EscreverPacienteXml(); // registro novo objeto
      }

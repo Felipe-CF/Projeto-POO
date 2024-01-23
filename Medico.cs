@@ -51,10 +51,10 @@ class NMedico : NRegistros<Medico>{
     
     public void Inserir(Medico novoObjeto){
           AbrirMedicoXml(); // abro registro
-          int id = 0;
-          foreach(Medico objeto in objetos) // defino o id
+           int id = objetos.Count+1;
+          if(id == objetos.Last().id)
                id++;
-          novoObjeto.id = ++id;
+          novoObjeto.id = id;
           objetos.Add(novoObjeto);
           EscreverMedicoXml(); // registro novo objeto
      }

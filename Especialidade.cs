@@ -42,10 +42,10 @@ class Especialidades{
     }
     public void Inserir(Especialidade novoObjeto){
           AbrirEspecialidadeXml(); // abro registro
-          int id = 0;
-          foreach(Especialidade objeto in objetos) // defino o id
+          int id = objetos.Count+1;
+          if(id == objetos.Last().id)
                id++;
-          novoObjeto.id = ++id;
+          novoObjeto.id = id;
           objetos.Add(novoObjeto);
           EscreverEspecialidadeXml(); // registro novo objeto
      }

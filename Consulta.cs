@@ -50,10 +50,10 @@ class Consultas{
     }
     public void Inserir(Consulta novoObjeto){
           AbrirConsultaXml(); 
-          int id = 0;
-          foreach(Consulta objeto in objetos) 
+           int id = objetos.Count+1;
+          if(id == objetos.Last().id)
                id++;
-          novoObjeto.id = ++id;
+          novoObjeto.id = id;
           objetos.Add(novoObjeto);
           EscreverConsultaXml(); 
      }

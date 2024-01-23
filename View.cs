@@ -80,13 +80,25 @@ namespace  Projeto{
         Console.WriteLine(" ------------------------------- ");
     }
 
-    public static void PacienteExcluir(int idP){
+    public static bool PacienteExcluir(int idP){
         try{
             NPaciente nP = new NPaciente();
         List<Paciente> pacientes = nP.Listar();
         foreach(Paciente obj in pacientes)
-            if(obj.id == idP) nP.Excluir(obj);
+            if(obj.id == idP) nP.Excluir(obj); return true;
         } catch(FileNotFoundException){}
+         return false;
+    }
+
+    public static void ExcluirHistoricoDoPacienteRemovido(int idP){
+        try{
+            NConsulta nC = new NConsulta();
+            List<Consulta> consultas =  nC.Listar();
+        foreach(Consulta obj in consultas)
+            if(obj.idPaciente == idP) nC.Excluir(obj);
+        Console.WriteLine("Histórico de consultas do paciente removido.");
+        } catch(FileNotFoundException){}
+        
     }
 
     public static List<Consulta> ListarConsultas(){

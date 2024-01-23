@@ -24,4 +24,12 @@
     <contato>lcosta@gmail.com</contato>
     <senha>12345</senha>
   </Paciente>
+  <Paciente>
+    <id>4</id>
+    <nome>Eu</nome>
+    <nasc>1997-09-12T00:00:00</nasc>
+    <endereco>rua</endereco>
+    <contato>1@g</contato>
+    <senha>1</senha>
+  </Paciente>
 </ArrayOfPaciente>

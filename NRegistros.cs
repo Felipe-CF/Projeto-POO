@@ -37,10 +37,10 @@ class NRegistros<T> where T : IIdentificador
 
      public void Inserir(T novoObjeto){
           AbrirXml(); // abro registro
-          int id = 0;
-          foreach(T objeto in objetos) // defino o id
+          int id = objetos.Count+1;
+          if(id == objetos.Last().id)
                id++;
-          novoObjeto.id = ++id;
+          novoObjeto.id = id;
           objetos.Add(novoObjeto);
           EscreverXml(); // registro novo objeto
      }
