@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "J/n+iY7u+gNAolne5QTlneCRjhbB8A98pW4SDj+mPwyyIDRiVP7rBve19QI/Npsw+38Eb7Pj9ktfRTVR3jx0/w==",
+  "dgSpecHash": "lFlNLK7hS5jYL4PsyrNhfbFoytMUdszxS2EacAt823qnZAptV57GGzv9v14FnUxg9+VVkpQE8Yn/V2s3Itjz9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\OMoral\\Downloads\\Projeto-POO\\Projeto.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\OMoral\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\OMoral\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\OMoral\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\OMoral\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }
