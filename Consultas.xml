@@ -55,20 +55,6 @@
     <idPaciente>4</idPaciente>
     <idMedico>13</idMedico>
     <status>marcada</status>
-    <data>2024-01-24T00:00:00</data>
-  </Consulta>
-  <Consulta>
-    <id>8</id>
-    <idPaciente>4</idPaciente>
-    <idMedico>12</idMedico>
-    <status>marcada</status>
-    <data>2024-03-12T00:00:00</data>
-  </Consulta>
-  <Consulta>
-    <id>9</id>
-    <idPaciente>4</idPaciente>
-    <idMedico>10</idMedico>
-    <status>marcada</status>
     <data>2024-04-12T00:00:00</data>
   </Consulta>
 </ArrayOfConsulta>

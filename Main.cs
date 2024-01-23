@@ -160,8 +160,10 @@ namespace Projeto{
                 Console.Write("Informe o id  do(a) paciente que você deseja excluir: ");
                 int idEx = int.Parse(Console.ReadLine());
                 bool exc = View.PacienteExcluir(idEx);
-                if(!exc)
-                    Console.WriteLine("Paciente não encontrado no sistema. Verifique se o id informado está correto, ou se o paciente já teve se cadastro removido."); return;
+                if(!exc){
+                    Console.WriteLine("Paciente não encontrado no sistema. Verifique se o id informado está correto, ou se o paciente já teve se cadastro removido."); 
+                    return;
+                }
                 View.ExcluirHistoricoDoPacienteRemovido(idEx);
             } catch(FormatException){
                 Console.WriteLine("Id do paciente informado não é compatível");
