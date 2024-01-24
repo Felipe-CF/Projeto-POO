@@ -158,13 +158,13 @@ namespace Projeto{
             try{
                 View.ListarPacientes();
                 Console.Write("Informe o id  do(a) paciente que você deseja excluir: ");
-                int idEx = int.Parse(Console.ReadLine());
-                bool exc = View.PacienteExcluir(idEx);
-                if(!exc){
-                    Console.WriteLine("Paciente não encontrado no sistema. Verifique se o id informado está correto, ou se o paciente já teve se cadastro removido."); 
-                    return;
+                int idEx;
+                while(true){
+                    idEx = int.Parse(Console.ReadLine());
+                    if(idEx > 0) break;
+                    Console.Write("Id Invalido. Digita o valor correspondente ao paciente existente nos registros: ");
                 }
-                View.ExcluirHistoricoDoPacienteRemovido(idEx);
+                View.PacienteExcluir(idEx);
             } catch(FormatException){
                 Console.WriteLine("Id do paciente informado não é compatível");
             }

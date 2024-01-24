@@ -50,11 +50,4 @@
     <status>marcada</status>
     <data>2024-01-06T00:00:00</data>
   </Consulta>
-  <Consulta>
-    <id>7</id>
-    <idPaciente>4</idPaciente>
-    <idMedico>13</idMedico>
-    <status>marcada</status>
-    <data>2024-04-12T00:00:00</data>
-  </Consulta>
 </ArrayOfConsulta>

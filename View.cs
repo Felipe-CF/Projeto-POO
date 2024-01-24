@@ -80,14 +80,15 @@ namespace  Projeto{
         Console.WriteLine(" ------------------------------- ");
     }
 
-    public static bool PacienteExcluir(int idP){
+    public static void PacienteExcluir(int idP){
         try{
             NPaciente nP = new NPaciente();
         List<Paciente> pacientes = nP.Listar();
         foreach(Paciente obj in pacientes)
-            if(obj.id == idP) nP.Excluir(obj); return true;
+            if(obj.id == idP) nP.Excluir(obj); ExcluirHistoricoDoPacienteRemovido(idP); return;
+             Console.WriteLine("Paciente não encontrado no sistema. Verifique se o id informado está correto, ou se o paciente já teve se cadastro removido."); 
         } catch(FileNotFoundException){}
-         return false;
+
     }
 
     public static void ExcluirHistoricoDoPacienteRemovido(int idP){
