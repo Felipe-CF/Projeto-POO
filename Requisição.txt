@@ -1,3 +1,0 @@
-Código paciente:3   Nome:MARIA lUCIA   Data de Nascimento:26/06/1967
-Código Médico:5   Médico(a):Tim Maia   CRM:1990
-Data da Consulta:04/01/2024   Requisição: dipirona de 08 em 08 horas 
