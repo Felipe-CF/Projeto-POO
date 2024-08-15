@@ -1,0 +1,14 @@
+C:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\obj\Debug\net7.0\ArvorePesquisa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\obj\Debug\net7.0\ArvorePesquisa.AssemblyInfoInputs.cache
+C:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\obj\Debug\net7.0\ArvorePesquisa.AssemblyInfo.cs
+C:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\obj\Debug\net7.0\ArvorePesquisa.csproj.CoreCompileInputs.cache
+c:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\bin\Debug\net7.0\ArvorePesquisa.exe
+c:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\bin\Debug\net7.0\ArvorePesquisa.deps.json
+c:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\bin\Debug\net7.0\ArvorePesquisa.runtimeconfig.json
+c:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\bin\Debug\net7.0\ArvorePesquisa.dll
+c:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\bin\Debug\net7.0\ArvorePesquisa.pdb
+c:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\obj\Debug\net7.0\ArvorePesquisa.dll
+c:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\obj\Debug\net7.0\refint\ArvorePesquisa.dll
+c:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\obj\Debug\net7.0\ArvorePesquisa.pdb
+c:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\obj\Debug\net7.0\ArvorePesquisa.genruntimeconfig.cache
+c:\Users\OMoral\Desktop\CODIGOS\C#\Csharp\ArvorePesquisa\obj\Debug\net7.0\ref\ArvorePesquisa.dll
