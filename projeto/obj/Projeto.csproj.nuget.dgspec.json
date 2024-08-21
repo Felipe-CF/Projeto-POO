@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\OMoral\\Downloads\\Projeto-POO\\Projeto.csproj": {}
+    "C:\\Users\\20231014040005\\Desktop\\Csharp\\projeto\\Projeto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\OMoral\\Downloads\\Projeto-POO\\Projeto.csproj": {
+    "C:\\Users\\20231014040005\\Desktop\\Csharp\\projeto\\Projeto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\OMoral\\Downloads\\Projeto-POO\\Projeto.csproj",
+        "projectUniqueName": "C:\\Users\\20231014040005\\Desktop\\Csharp\\projeto\\Projeto.csproj",
         "projectName": "Projeto",
-        "projectPath": "C:\\Users\\OMoral\\Downloads\\Projeto-POO\\Projeto.csproj",
-        "packagesPath": "C:\\Users\\OMoral\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\OMoral\\Downloads\\Projeto-POO\\obj\\",
+        "projectPath": "C:\\Users\\20231014040005\\Desktop\\Csharp\\projeto\\Projeto.csproj",
+        "packagesPath": "C:\\Users\\20231014040005\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\20231014040005\\Desktop\\Csharp\\projeto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\OMoral\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\20231014040005\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -32,6 +34,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -48,12 +55,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[7.0.20, 7.0.20]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.404\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.206\\RuntimeIdentifierGraph.json"
         }
       }
     }

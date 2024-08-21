@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "lFlNLK7hS5jYL4PsyrNhfbFoytMUdszxS2EacAt823qnZAptV57GGzv9v14FnUxg9+VVkpQE8Yn/V2s3Itjz9g==",
+  "dgSpecHash": "rQ/P7vz4J9c5X68jK1R8uSgF0EOv0sLa7yAP4/fJ96kfCWJFuQ9sqRWl4RVFwoIvd0gJi2H48zymuxsadRfJ0w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\OMoral\\Downloads\\Projeto-POO\\Projeto.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\20231014040005\\Desktop\\Csharp\\projeto\\Projeto.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\20231014040005\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\20231014040005\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\20231014040005\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\20231014040005\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
+  ],
   "logs": []
 }
