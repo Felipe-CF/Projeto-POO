@@ -155,8 +155,88 @@ public class Heap{
 
         ultimo = ultimo.getPai();
 
+        tam--;
 
+        downHeap(a_raiz);
 
+        realocandoUltimo();
+
+    }
+
+    private void downHeap(No n){
+        
+        while(ehInterno(n)){
+
+            int chave_esquerda = n.getFilhoEsquerdo().getChave();
+
+            int chave_direita = n.getFilhoDireito().getChave();
+
+            if( chave_esquerda < chave_direita ){
+
+                No esq = n.getFilhoEsquerdo();
+
+                esq.setElemento(n.getElemento());
+
+                esq.setChave(n.getChave());
+
+                object obj = n.getFilhoEsquerdo().getElemento();
+                
+                n.setChave(chave_esquerda);
+
+                n.setElemento(obj);
+
+                n = n.getFilhoEsquerdo();
+
+            }
+
+            else if( chave_esquerda > chave_direita ){
+
+                No dir = n.getFilhoDireito();
+
+                dir.setElemento(n.getElemento());
+
+                dir.setChave(n.getChave());
+
+                object obj = n.getFilhoDireito().getElemento();
+                
+                n.setChave(chave_direita);
+
+                n.setElemento(obj);
+
+                n = n.getFilhoDireito();
+
+            }
+
+            else
+                break;
+        }
+    }
+
+    private No menorFilho(ArrayList f){
+        No esq = f[0];
+
+        No dir = f[1];
+
+        if(esq != null){
+
+            if(dir != null){
+
+                if (esq.getChave() > dir.getChave())
+                    return dir;
+
+            }
+            
+            return esq;
+            
+        }
+
+        if (dir != null)
+
+            return dir;
+
+    }
+
+    private void realocandoUltimo(){
 
     }
 }
