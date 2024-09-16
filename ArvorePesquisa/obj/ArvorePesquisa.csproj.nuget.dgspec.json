@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\OMoral\\Desktop\\CODIGOS\\C#\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj": {}
+    "C:\\Users\\OMoral\\Desktop\\CODIGOS\\C#\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj": {}
   },
   "projects": {
-    "c:\\Users\\OMoral\\Desktop\\CODIGOS\\C#\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj": {
+    "C:\\Users\\OMoral\\Desktop\\CODIGOS\\C#\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\OMoral\\Desktop\\CODIGOS\\C#\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj",
+        "projectUniqueName": "C:\\Users\\OMoral\\Desktop\\CODIGOS\\C#\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj",
         "projectName": "ArvorePesquisa",
-        "projectPath": "c:\\Users\\OMoral\\Desktop\\CODIGOS\\C#\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj",
+        "projectPath": "C:\\Users\\OMoral\\Desktop\\CODIGOS\\C#\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj",
         "packagesPath": "C:\\Users\\OMoral\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\OMoral\\Desktop\\CODIGOS\\C#\\Csharp\\ArvorePesquisa\\obj\\",
+        "outputPath": "C:\\Users\\OMoral\\Desktop\\CODIGOS\\C#\\Csharp\\ArvorePesquisa\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\OMoral\\AppData\\Roaming\\NuGet\\NuGet.Config"
