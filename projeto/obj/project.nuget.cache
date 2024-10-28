@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XsoHDGGIQEA=",
+  "dgSpecHash": "MiKV5Arq7Dg=",
   "success": true,
-  "projectFilePath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj",
+  "projectFilePath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\projeto\\Projeto.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\FelipeCF\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
     "C:\\Users\\FelipeCF\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",

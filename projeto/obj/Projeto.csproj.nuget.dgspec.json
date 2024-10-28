@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj": {}
+    "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\projeto\\Projeto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj": {
+    "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\projeto\\Projeto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj",
-        "projectName": "ArvorePesquisa",
-        "projectPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj",
+        "projectUniqueName": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\projeto\\Projeto.csproj",
+        "projectName": "Projeto",
+        "projectPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\projeto\\Projeto.csproj",
         "packagesPath": "C:\\Users\\FelipeCF\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvorePesquisa\\obj\\",
+        "outputPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\projeto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\FelipeCF\\AppData\\Roaming\\NuGet\\NuGet.Config"

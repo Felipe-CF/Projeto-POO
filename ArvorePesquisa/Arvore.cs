@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 
 public class Arvore{
-    private Raiz raiz;
+    private No raiz;
     private int size;
 
     public Arvore(){
-        raiz = new Raiz();
+        raiz = null;
         size = 0;
      }
 
@@ -18,13 +18,11 @@ public class Arvore{
         return size;
     }
 
-    public void fincandoRaiz(int e){
+    protected void fincandoRaiz(No n){
         if(!ehVazia())
             throw new Exception("A arvore ja foi plantada");
         
-        No n = new No(e);
-
-        raiz.setRaiz(n);
+        raiz = n;
 
         size++;
     }
@@ -33,13 +31,14 @@ public class Arvore{
         if(ehVazia())
             throw new Exception("A arvore não existe");
 
-        return raiz.getRaiz() == n;
+        return raiz == n;
     }
 
     public No aRaiz(){   //
         if(ehVazia())
             throw new Exception("A arvore não existe");
-        return raiz.getRaiz();
+
+        return raiz;
     }
 
     public bool temFilhoEsquerdo(No n){
@@ -60,116 +59,90 @@ public class Arvore{
         if(ehVazia())
             throw new Exception("Não existe arvore");
         
+        // false or false = true
         return !(temFilhoDireito(n) || temFilhoDireito(n));
     }
 
     public bool ehInterno(No n){
         if(ehVazia())
             throw new Exception("Não existe arvore");
-
+        
         return temFilhoDireito(n) || temFilhoDireito(n);
     }
 
-    public No buscaNo(No r, No n){
-        if(ehExterno(r))
-            return r;
+    public No buscaNo(No n){
+        No r = raiz;
 
-        if (r.getElemento() >  n.getElemento()) // se for menor, desce pela esquerda
-            return buscaNo(r.getFilhoEsquerdo(), n);
-        
-        else if(r.getElemento() == n.getElemento()) // se for igual, retorna
-            return r;
+        while(r != null){
+            if (n.getChave() < r.getChave()) // se for menor, desce pela esquerda
+                r = r.getFilhoEsquerdo();
 
-        else 
-            return buscaNo(r.getFilhoDireito(), n); // se for maior, desce pela direita
-        
-    }
-
-    public void inserirNo(No r, int o){
-        if(ehVazia())
-            fincandoRaiz(o);
-
-        else{
-            No novo_no = new No(o);
-
-            No no_referencia = buscaNo(raiz.getRaiz(), novo_no);
-
-            if(novo_no.getElemento() > no_referencia.getElemento()){
-
-                no_referencia.setFilhoDireito(novo_no);
-
-                novo_no.setPai(no_referencia);
-
-                size++;
-            }
-            else if(novo_no.getElemento() < no_referencia.getElemento()){
-
-                no_referencia.setFilhoEsquerdo(novo_no);
-
-                novo_no.setPai(no_referencia);
-
-                size++;
-            }
-
+            if (n.getChave() == r.getChave())
+                break;
+            
+            else
+                r = r.getFilhoDireito(); 
+            
         }
-
+        
+        return r;
+        
     }
 
-    public No remover(No v){
+    public void inserirNo(No novo_no){
+
+        if(novo_no == null)
+            Console.WriteLine("Nó passado é vazio");
+        
+        else{
+
+            if(ehVazia())
+                fincandoRaiz(novo_no);
+
+            else{
+
+                No n = buscaNo(novo_no);
+
+                novo_no.setPai(n.getPai());
+
+                if(novo_no.getChave() < n.getPai().getChave())
+                    n.getPai().setFilhoEsquerdo(novo_no);
+                else
+                    n.getPai().setFilhoDireito(novo_no);
+                
+                n.setPai(null);
+
+            }
+
+            size++;
+        }
+    }
+
+    public No remover(No r){
         if(ehVazia())
             throw new Exception("Não existe arvore");
 
-        No no_a_remover = buscaNo(raiz.getRaiz(), v); // acho o no que sera removido
+        No removido = r;
 
-        No removido = null;
-
-        if(no_a_remover != null){ // se o nó existe na arvore
-            removido.setElemento(no_a_remover.getElemento()); // pego o elemento dele
-
-            int valor_deslocado;
-
-            if(ehExterno(no_a_remover))
-                no_a_remover = null;
-
-            else if(temFilhoEsquerdo(no_a_remover)){
-
-                valor_deslocado = moverMaiorDaEsquerda(no_a_remover.getFilhoEsquerdo());
-
-                no_a_remover.setElemento(valor_deslocado);
-            }
-            else {
-
-                valor_deslocado = moverMenorDaDireita(no_a_remover.getFilhoEsquerdo());
-
-                no_a_remover.setElemento(valor_deslocado);
-            }        
-
-            size--;
-
+        if(r.getFilhoDireito() != null){
+            No n = menorDosMaiores(r.getFilhoDireito());
         }
+        
 
-        return removido;
+
+        return null;
     }
 
-    private int moverMaiorDaEsquerda(No n){
-        if(!temFilhoDireito(n)){
-            int valor = n.getElemento();
-            n = null;
-            return valor;
-        }
-        else 
-            return moverMaiorDaEsquerda(n.getFilhoDireito());
+    private No menorDosMaiores(No n){
+        
+        while(n.getFilhoEsquerdo() != null)
+            n = n.getFilhoEsquerdo();
+        
+        
+        
+        return n;
     }
 
-    private int moverMenorDaDireita(No n){
-        if(!temFilhoEsquerdo(n)){
-            int valor = n.getElemento();
-            n = null;
-            return valor;
-        }
-        else 
-            return moverMenorDaDireita(n.getFilhoDireito());
-    }
 
     public int profundidade(No n){
         if(ehRaiz(n))
