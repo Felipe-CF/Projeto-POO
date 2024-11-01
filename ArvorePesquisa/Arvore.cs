@@ -118,17 +118,49 @@ public class Arvore{
         }
     }
 
-    public No remover(No r){
+    public No remover(No a_remover){
         if(ehVazia())
             throw new Exception("Não existe arvore");
 
-        No removido = r;
+        No pai = a_remover.getPai();
 
-        if(r.getFilhoDireito() != null){
-            No n = menorDosMaiores(r.getFilhoDireito());
+        // checa se o no a se remover tem um filho direito
+        if(a_remover.getFilhoDireito() != null){
+
+            No no_maior = menorDosMaiores(a_remover.getFilhoDireito());
+            
+            if(pai.getFilhoEsquerdo() == a_remover)
+                pai.setFilhoEsquerdo(no_maior);
+
+            else if(pai.getFilhoDireito() == a_remover)
+                pai.setFilhoDireito(no_maior);
+            
+            a_remover.getFilhoEsquerdo().setPai(no_maior);
+
+            a_remover.getFilhoDireito().setPai(no_maior);
+            
+        }
+
+        // se não, o no a se remover tem um filho direito
+        else{
+
+            if(pai.getFilhoEsquerdo() == a_remover)
+                pai.setFilhoEsquerdo(a_remover.getFilhoEsquerdo());
+
+            else if(pai.getFilhoDireito() == a_remover)
+                pai.setFilhoDireito(a_remover.getFilhoEsquerdo());
+
+            a_remover.getFilhoEsquerdo().setPai(a_remover.getPai());
+
         }
         
+        a_remover.setPai(null);
 
+        a_remover.setFilhoDireito(null);
+            
+        a_remover.setFilhoEsquerdo(null);
+
+        size--;
 
         return null;
     }
@@ -138,7 +170,21 @@ public class Arvore{
         while(n.getFilhoEsquerdo() != null)
             n = n.getFilhoEsquerdo();
         
-        
+        if (ehExterno(n)){
+            n.getPai().setFilhoEsquerdo(null);
+
+            n.setPai(null);
+        }
+
+        else{
+            n.getPai().setFilhoEsquerdo(n.getFilhoDireito());
+
+            n.getFilhoDireito().setPai(n.getPai());
+
+            n.setPai(null);
+
+            n.setFilhoDireito(null);
+        }
         
         return n;
     }
@@ -165,46 +211,46 @@ public class Arvore{
     }
 
 
-    public string preOrdem(No n){
+    // public string preOrdem(No n){
     
-        string retorno = n.getElemento().ToString() + " ";
+    //     string retorno = n.getElemento().ToString() + " ";
 
-        if(ehInterno(n) && temFilhoEsquerdo(n))
-            retorno += emOrdem(n.getFilhoEsquerdo());
+    //     if(ehInterno(n) && temFilhoEsquerdo(n))
+    //         retorno += emOrdem(n.getFilhoEsquerdo());
 
-        else if(ehInterno(n) && temFilhoDireito(n))
-            retorno += emOrdem(n.getFilhoDireito());
+    //     else if(ehInterno(n) && temFilhoDireito(n))
+    //         retorno += emOrdem(n.getFilhoDireito());
 
-        return retorno;
-    }
+    //     return retorno;
+    // }
     
-    public string emOrdem(No n){
-        string retorno = "";
+    // public string emOrdem(No n){
+    //     string retorno = "";
 
-        if(ehInterno(n) && temFilhoEsquerdo(n) )
-            retorno += emOrdem(n.getFilhoEsquerdo());
+    //     if(ehInterno(n) && temFilhoEsquerdo(n) )
+    //         retorno += emOrdem(n.getFilhoEsquerdo());
         
-        retorno += n.getElemento().ToString() + " ";
+    //     retorno += n.getElemento().ToString() + " ";
 
-        if(ehInterno(n) && temFilhoDireito(n))
-            retorno += emOrdem(n.getFilhoDireito());
+    //     if(ehInterno(n) && temFilhoDireito(n))
+    //         retorno += emOrdem(n.getFilhoDireito());
 
-        return retorno;
-    }
+    //     return retorno;
+    // }
 
-    public string posOrdem(No n){
-        string retorno = "";
+    // public string posOrdem(No n){
+    //     string retorno = "";
 
-        if(ehInterno(n) && temFilhoEsquerdo(n))
-            retorno += emOrdem(n.getFilhoEsquerdo());
+    //     if(ehInterno(n) && temFilhoEsquerdo(n))
+    //         retorno += emOrdem(n.getFilhoEsquerdo());
 
-        else if(ehInterno(n) && temFilhoDireito(n))
-            retorno += emOrdem(n.getFilhoDireito());
+    //     else if(ehInterno(n) && temFilhoDireito(n))
+    //         retorno += emOrdem(n.getFilhoDireito());
 
-        retorno += n.getElemento().ToString() + " ";
+    //     retorno += n.getElemento().ToString() + " ";
 
-        return retorno;
+    //     return retorno;
     
-    }
+    // }
 }
 
