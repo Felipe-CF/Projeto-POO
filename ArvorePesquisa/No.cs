@@ -45,6 +45,11 @@ public class No {
         
         return os_filhos;
     }
+
+    public override string ToString()
+    {
+        return $"{chave}";
+    }
 }
 
 
