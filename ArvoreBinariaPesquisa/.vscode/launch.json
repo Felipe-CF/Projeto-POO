@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "C#: ArvoreBinariaPesquisa",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}\\ArvoreBinariaPesquisa.csproj",
+            "launchConfigurationId": "TargetFramework=;ArvoreBinariaPesquisa"
+        }
+    ]
+}
