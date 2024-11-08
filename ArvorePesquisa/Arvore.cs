@@ -144,22 +144,29 @@ public class Arvore{
         if(a_remover == null)
             throw new Exception("Nó não foi inserido na árvore");
 
+        // se é interno...
         if (ehInterno(a_remover)){
 
             No o_maior = null;
 
-            No pai = a_remover.getPai();
-
-            // se o nó a ser removido tem filhos a esquerda...
+            // se o nó a ser removido tem filhos a direita...
             if(a_remover.getFilhoDireito() != null){
 
                 o_maior = menorDosMaiores(a_remover.getFilhoDireito());
 
-                if(ehRaiz(a_remover))
+                if(ehRaiz(a_remover)){
+                    
                     raiz = o_maior;
 
+                    a_remover.getFilhoEsquerdo().setPai(o_maior);
+
+                    a_remover.getFilhoDireito().setPai(o_maior);
+
+                }
+
                 else{
-                    pai = a_remover.getPai();
+                    
+                    No pai = a_remover.getPai();
 
                     if(pai.getFilhoDireito() == a_remover)
                         pai.setFilhoDireito(o_maior);
@@ -169,18 +176,32 @@ public class Arvore{
                     
                 }
 
-
             }
 
-            // se o nó a ser removido não tinha filhos a esquerda
+            // se o nó a ser removido não tinha filhos a direita
             if(o_maior == null){
-                a_remover.getFilhoEsquerdo().setPai(pai);
+                // se era a raiz...
+                if(ehRaiz(a_remover)){
+                    
+                    raiz = a_remover.getFilhoEsquerdo();
 
-                if(pai.getFilhoEsquerdo() == a_remover)
-                    pai.setFilhoEsquerdo(a_remover.getFilhoEsquerdo());
+                    a_remover.getFilhoEsquerdo().setPai(null);
 
-                else if(pai.getFilhoDireito() == a_remover)
-                    pai.setFilhoDireito(a_remover.getFilhoEsquerdo());
+                }
+                // se não era...
+                else{
+                
+                    No pai = a_remover.getPai();
+
+                    a_remover.getFilhoEsquerdo().setPai(pai);
+
+                    if(pai.getFilhoEsquerdo() == a_remover)
+                        pai.setFilhoEsquerdo(a_remover.getFilhoEsquerdo());
+
+                    else if(pai.getFilhoDireito() == a_remover)
+                        pai.setFilhoDireito(a_remover.getFilhoEsquerdo());
+
+                }
 
             }
 
