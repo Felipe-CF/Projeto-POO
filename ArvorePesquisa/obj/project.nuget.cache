@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XsoHDGGIQEA=",
+  "dgSpecHash": "Q7zz3Ls3Mu8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\FelipeCF\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\FelipeCF\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\FelipeCF\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
-    "C:\\Users\\FelipeCF\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\7.0.20\\microsoft.netcore.app.host.win-x64.7.0.20.nupkg.sha512"
-  ],
+  "projectFilePath": "C:\\Users\\20231014040005\\Desktop\\Csharp\\ArvorePesquisa\\ArvorePesquisa.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }
