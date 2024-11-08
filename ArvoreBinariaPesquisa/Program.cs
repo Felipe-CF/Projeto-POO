@@ -6,11 +6,6 @@ class Program
 {
     static void Main(string[] args)
     {
-        string s = "1";
-
-        string b = s + "";
-        
-        Console.WriteLine(b);
 
         No no10 = new No(10);
         No no5 = new No(5);
@@ -37,14 +32,24 @@ class Program
 
         arvore.inserirNo(no14);
 
+        arvore.inserirNo(no13);
+
+        arvore.inserirNo(no25);
+
+        arvore.inserirNo(no23);
+
+        arvore.inserirNo(no22);
+
         Console.WriteLine(arvore);
 
-        // No teste = arvore.remover(no20);
-        // No teste = arvore.remover(no10);
-        No teste = arvore.remover(no3);
-
+        No teste = arvore.remover(no20);
         Console.WriteLine(teste);
-        
+
+        // No teste = arvore.remover(no10);
+
+        teste = arvore.remover(no5);
+        Console.WriteLine(teste);
+
         Console.WriteLine(arvore);
 
     }

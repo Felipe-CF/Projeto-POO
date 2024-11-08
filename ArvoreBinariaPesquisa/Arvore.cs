@@ -143,10 +143,13 @@ public class Arvore{
 
             n.getPai().setFilhoEsquerdo(n.getFilhoDireito());
         }
-        else
-            n.getPai().setFilhoEsquerdo(null);
+        else{
 
-        No a = n.getPai();
+            if(n.getPai().getFilhoEsquerdo() == n)
+                n.getPai().setFilhoEsquerdo(null);
+            else
+                n.getPai().setFilhoDireito(null);
+        }
 
         n.setPai(null);
 
@@ -173,9 +176,6 @@ public class Arvore{
         // se não achei ele...
         if(a_remover == null)
             throw new Exception("Nó não foi inserido na árvore");
-
-        if(size == 1)
-            raiz = null;
 
         No o_maior = new No();
 
@@ -215,22 +215,28 @@ public class Arvore{
                 }
             }
         }
-        else{
 
-            if(a_remover.getPai().getFilhoEsquerdo() == a_remover)
+        else{ // se o nó for externo...
+
+            if(size == 1) // checo se é a raiz
+                raiz = null;
+            
+            else if(a_remover.getPai().getFilhoEsquerdo() == a_remover)
                 a_remover.getPai().setFilhoEsquerdo(null);
-            else if(a_remover.getPai().getFilhoEsquerdo() == a_remover){
 
+            else if(a_remover.getPai().getFilhoDireito() == a_remover){
+                a_remover.getPai().setFilhoDireito(null);
             }
 
             a_remover.setPai(null);
 
-            a_remover.setFilhoDireito(null);
+            o_maior = a_remover;
+
+            // a_remover.setFilhoDireito(null);
                 
-            a_remover.setFilhoEsquerdo(null);
+            // a_remover.setFilhoEsquerdo(null);
 
         }
-
 
         size--;
 
@@ -254,7 +260,10 @@ public class Arvore{
 
     public override string ToString()
     {
-        return emOrdem(raiz);
+        string arvore = "[ ";
+
+        arvore += emOrdem(raiz) + "]";
+        return arvore;
     }
 
     public int altura(No n){

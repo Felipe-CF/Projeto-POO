@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreBinariaPesquisa\\ArvoreBinariaPesquisa.csproj": {}
+    "c:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreBinariaPesquisa\\ArvoreBinariaPesquisa.csproj": {}
   },
   "projects": {
-    "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreBinariaPesquisa\\ArvoreBinariaPesquisa.csproj": {
+    "c:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreBinariaPesquisa\\ArvoreBinariaPesquisa.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreBinariaPesquisa\\ArvoreBinariaPesquisa.csproj",
+        "projectUniqueName": "c:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreBinariaPesquisa\\ArvoreBinariaPesquisa.csproj",
         "projectName": "ArvoreBinariaPesquisa",
-        "projectPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreBinariaPesquisa\\ArvoreBinariaPesquisa.csproj",
+        "projectPath": "c:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreBinariaPesquisa\\ArvoreBinariaPesquisa.csproj",
         "packagesPath": "C:\\Users\\FelipeCF\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreBinariaPesquisa\\obj\\",
+        "outputPath": "c:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreBinariaPesquisa\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\FelipeCF\\AppData\\Roaming\\NuGet\\NuGet.Config"
