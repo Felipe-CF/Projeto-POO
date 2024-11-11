@@ -2,11 +2,11 @@ using System;
 using System.Collections.Generic;
 namespace ArvoreAVL;
 
-public class ArvoreAVL{
+public class Arvore{
     private No raiz;
     private int size;
 
-    public ArvoreAVL(){
+    public Arvore(){
         raiz = null;
         size = 0;
      }
@@ -143,7 +143,8 @@ public class ArvoreAVL{
 
             size++;
 
-            checaBalanco(novo_no, "insercao");
+            if(size > 1)
+                checaBalanco(novo_no, "insercao");
         }
     }
 
@@ -289,7 +290,7 @@ public class ArvoreAVL{
         if(Math.Abs(n.getFator()) > 1)
             fazerRotacao(n);
 
-        if(n.getPai() != null)
+        if(n.getPai() != null && n.getFator() != 0)
             checaBalanco(n, operacao);
 
     }
