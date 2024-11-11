@@ -286,15 +286,32 @@ public class ArvoreAVL{
 
         n.setFator(n.getFator() + fb); // atualiza o fb do pai
 
-        if(n.getFator() > 1)
-            rotacaoDireita(n);
+        if(Math.Abs(n.getFator()) > 1)
+            fazerRotacao(n);
 
-        else if (n.getFator() < -1)
-            rotacaoEsquerda(n);
-        
         if(n.getPai() != null)
             checaBalanco(n, operacao);
 
+    }
+
+
+    private void fazerRotacao(No n){
+
+        if(n.getFator() > 1){
+
+            if(n.getFilhoEsquerdo().getFator() < 0)
+                rotacaoEsquerda(n.getFilhoEsquerdo());
+            
+            rotacaoDireita(n);
+        }
+
+        else if (n.getFator() < -1){
+
+            if(n.getFilhoEsquerdo().getFator() < 0)
+                rotacaoDireita(n.getFilhoDireito());
+            
+            rotacaoEsquerda(n);
+        }
     }
 
     public void rotacaoDireita(No n){
@@ -302,26 +319,26 @@ public class ArvoreAVL{
         n.getFilhoEsquerdo().setPai(n.getPai());
 
         if(n.getPai() == null) // se for a raiz...
-            raiz = n.getFilhoDireito();
+            raiz = n.getFilhoEsquerdo();
         
         else{ // se não for...
 
-            No pai = n.getPai();
+            if(n.getPai().getFilhoEsquerdo() == n)
+                n.getPai().setFilhoEsquerdo(n.getFilhoEsquerdo());
+            
+            else if (n.getPai().getFilhoDireito() == n)
+                n.getPai().setFilhoDireito(n.getFilhoEsquerdo());
 
-            // if()
-
-            n.getPai().setFilhoEsquerdo(n.getFilhoDireito());
         }
 
-        n.setPai(n.getFilhoDireito());
+        n.setPai(n.getFilhoEsquerdo());
         
-        if(n.getFilhoDireito().getFilhoEsquerdo() != null)
-            n.getFilhoDireito().getFilhoEsquerdo().setPai(n);
+        if(n.getFilhoEsquerdo().getFilhoDireito() != null)
+            n.getFilhoEsquerdo().getFilhoDireito().setPai(n);
         
-        n.setFilhoDireito(n.getFilhoDireito().getFilhoEsquerdo());
+        n.setFilhoEsquerdo(n.getFilhoEsquerdo().getFilhoDireito());
 
-        n.getPai().setFilhoEsquerdo(n);
-
+        n.getPai().setFilhoDireito(n);
 
     }
     
@@ -386,10 +403,7 @@ public class ArvoreAVL{
 
     public override string ToString()
     {
-        string arvore = "[ ";
-
-        arvore += emOrdem(raiz) + "]";
-        return arvore;
+        return "[ " + emOrdem(raiz) + "]";
     }
 
 

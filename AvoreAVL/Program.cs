@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        int i = -1;
+        i = Math.Abs(i);
+        Console.WriteLine(i);
     }
 }

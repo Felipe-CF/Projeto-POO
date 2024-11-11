@@ -36,7 +36,6 @@ public class No {
     public No getPai(){return pai;}
     public No getFilhoDireito(){return fd;}
     public No getFilhoEsquerdo(){return fe;}
-
     public override string ToString()
     {
         return $"{chave}";

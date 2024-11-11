@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AvoreAVL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9761dd2ff7e9726414f517329cf209b85e8921a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d097f91f276a6e42315245dfda7fcda74a4a14f")]
 [assembly: System.Reflection.AssemblyProductAttribute("AvoreAVL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AvoreAVL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
