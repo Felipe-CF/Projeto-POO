@@ -308,7 +308,7 @@ public class Arvore{
 
         else if (n.getFator() < -1){
 
-            if(n.getFilhoEsquerdo().getFator() < 0)
+            if(n.getFilhoDireito().getFator() > 0)
                 rotacaoDireita(n.getFilhoDireito());
             
             rotacaoEsquerda(n);
