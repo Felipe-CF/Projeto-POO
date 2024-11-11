@@ -1,0 +1,15 @@
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\obj\Debug\net8.0\ArvoreBinariaPesquisa.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\obj\Debug\net8.0\ArvoreBinariaPesquisa.AssemblyInfoInputs.cache
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\obj\Debug\net8.0\ArvoreBinariaPesquisa.AssemblyInfo.cs
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\obj\Debug\net8.0\ArvoreBinariaPesquisa.csproj.CoreCompileInputs.cache
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\obj\Debug\net8.0\ArvoreBinariaPesquisa.sourcelink.json
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\bin\Debug\net8.0\ArvoreBinariaPesquisa.exe
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\bin\Debug\net8.0\ArvoreBinariaPesquisa.deps.json
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\bin\Debug\net8.0\ArvoreBinariaPesquisa.runtimeconfig.json
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\bin\Debug\net8.0\ArvoreBinariaPesquisa.dll
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\bin\Debug\net8.0\ArvoreBinariaPesquisa.pdb
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\obj\Debug\net8.0\ArvoreBinariaPesquisa.dll
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\obj\Debug\net8.0\refint\ArvoreBinariaPesquisa.dll
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\obj\Debug\net8.0\ArvoreBinariaPesquisa.pdb
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\obj\Debug\net8.0\ArvoreBinariaPesquisa.genruntimeconfig.cache
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\ArvoreBinariaPesquisa\obj\Debug\net8.0\ref\ArvoreBinariaPesquisa.dll

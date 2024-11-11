@@ -1,0 +1,15 @@
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\bin\Debug\net8.0\HeapFilaPrioridade.exe
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\bin\Debug\net8.0\HeapFilaPrioridade.deps.json
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\bin\Debug\net8.0\HeapFilaPrioridade.runtimeconfig.json
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\bin\Debug\net8.0\HeapFilaPrioridade.dll
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\bin\Debug\net8.0\HeapFilaPrioridade.pdb
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\obj\Debug\net8.0\HeapFilaPrioridade.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\obj\Debug\net8.0\HeapFilaPrioridade.AssemblyInfoInputs.cache
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\obj\Debug\net8.0\HeapFilaPrioridade.AssemblyInfo.cs
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\obj\Debug\net8.0\HeapFilaPrioridade.csproj.CoreCompileInputs.cache
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\obj\Debug\net8.0\HeapFilaPrioridade.sourcelink.json
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\obj\Debug\net8.0\HeapFilaPrioridade.dll
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\obj\Debug\net8.0\refint\HeapFilaPrioridade.dll
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\obj\Debug\net8.0\HeapFilaPrioridade.pdb
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\obj\Debug\net8.0\HeapFilaPrioridade.genruntimeconfig.cache
+C:\Users\20231014040005\Desktop\Csharp\HeapFilaPrioridade\obj\Debug\net8.0\ref\HeapFilaPrioridade.dll

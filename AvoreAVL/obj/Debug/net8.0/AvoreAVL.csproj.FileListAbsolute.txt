@@ -1,0 +1,15 @@
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\obj\Debug\net8.0\AvoreAVL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\obj\Debug\net8.0\AvoreAVL.AssemblyInfoInputs.cache
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\obj\Debug\net8.0\AvoreAVL.AssemblyInfo.cs
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\obj\Debug\net8.0\AvoreAVL.csproj.CoreCompileInputs.cache
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\obj\Debug\net8.0\AvoreAVL.sourcelink.json
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\bin\Debug\net8.0\AvoreAVL.exe
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\bin\Debug\net8.0\AvoreAVL.deps.json
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\bin\Debug\net8.0\AvoreAVL.runtimeconfig.json
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\bin\Debug\net8.0\AvoreAVL.dll
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\bin\Debug\net8.0\AvoreAVL.pdb
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\obj\Debug\net8.0\AvoreAVL.dll
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\obj\Debug\net8.0\refint\AvoreAVL.dll
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\obj\Debug\net8.0\AvoreAVL.pdb
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\obj\Debug\net8.0\AvoreAVL.genruntimeconfig.cache
+C:\Users\FelipeCF\Desktop\Codigos\Csharp\AvoreAVL\obj\Debug\net8.0\ref\AvoreAVL.dll
