@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
-namespace ArvorePesquisa;
+namespace ArvoreAVL;
+
 public class Arvore{
     private No raiz;
     private int size;
@@ -10,13 +11,16 @@ public class Arvore{
         size = 0;
      }
 
+
     public bool ehVazia(){
         return size == 0;
     }
 
+
     public int tamanho(){
         return size;
     }
+
 
     protected void fincandoRaiz(No n){
         if(!ehVazia())
@@ -27,12 +31,14 @@ public class Arvore{
         n.setPai(null);
     }
 
+
     public bool ehRaiz(No n){   //
         if(ehVazia())
             throw new Exception("A arvore não existe");
 
         return raiz == n;
     }
+
 
     public No aRaiz(){   //
         if(ehVazia())
@@ -41,21 +47,24 @@ public class Arvore{
         return raiz;
     }
 
-    public bool temFilhoEsquerdo(No n){
+
+    private bool temFilhoEsquerdo(No n){
         if(ehVazia())
             throw new Exception("Não existe arvore");
             
         return n.getFilhoEsquerdo() != null;
     }
 
-    public bool temFilhoDireito(No n){
+
+    private bool temFilhoDireito(No n){
         if(ehVazia())
             throw new Exception("Não existe arvore");
 
         return n.getFilhoDireito() != null;
     }
 
-    public bool ehExterno(No n){
+
+    private bool ehExterno(No n){
         if(ehVazia())
             throw new Exception("Não existe arvore");
         
@@ -63,14 +72,16 @@ public class Arvore{
         return !(temFilhoDireito(n) || temFilhoDireito(n));
     }
 
-    public bool ehInterno(No n){
+
+    private bool ehInterno(No n){
         if(ehVazia())
             throw new Exception("Não existe arvore");
         
         return temFilhoEsquerdo(n) || temFilhoDireito(n);
     }
 
-    public No buscaNo(No n){
+
+    private No buscaNo(No n){
         No r = raiz;
 
         while(r != null){
@@ -106,6 +117,7 @@ public class Arvore{
         
     }
 
+
     public void inserirNo(No novo_no){
 
         if(novo_no == null)
@@ -130,8 +142,12 @@ public class Arvore{
             }
 
             size++;
+
+            if(size > 1)
+                checaBalanco(novo_no, "insercao");
         }
     }
+
 
     private int menorDosMaiores(No n){
         
@@ -160,12 +176,7 @@ public class Arvore{
         return n.getChave();
     }
 
-    public int profundidade(No n){
-        if(ehRaiz(n))
-            return 0;
-        else
-            return 1 + profundidade(n.getPai());
-    }
+    
     public No remover(No n){
 
         if(ehVazia())
@@ -176,6 +187,8 @@ public class Arvore{
         // se não achei ele...
         if(a_remover == null)
             throw new Exception("Nó não foi inserido na árvore");
+        
+        checaBalanco(a_remover, "remocao");
 
         No o_maior = new No();
 
@@ -214,27 +227,28 @@ public class Arvore{
                         a_remover.getPai().setFilhoDireito(a_remover.getFilhoEsquerdo());
                 }
             }
+
         }
 
         else{ // se o nó for externo...
 
             if(size == 1) // checo se é a raiz
                 raiz = null;
-            
-            else if(a_remover.getPai().getFilhoEsquerdo() == a_remover)
-                a_remover.getPai().setFilhoEsquerdo(null);
 
-            else if(a_remover.getPai().getFilhoDireito() == a_remover){
-                a_remover.getPai().setFilhoDireito(null);
+            else{
+
+                if(a_remover.getPai().getFilhoEsquerdo() == a_remover)
+                    a_remover.getPai().setFilhoEsquerdo(null);
+
+                else if(a_remover.getPai().getFilhoDireito() == a_remover){
+                    a_remover.getPai().setFilhoDireito(null);
+                }
+
             }
-
+            
             a_remover.setPai(null);
 
             o_maior = a_remover;
-
-            // a_remover.setFilhoDireito(null);
-                
-            // a_remover.setFilhoEsquerdo(null);
 
         }
 
@@ -243,6 +257,119 @@ public class Arvore{
         return o_maior;
         
         }
+
+
+    public void checaBalanco(No n, string operacao){
+        int fb = 0;
+
+        No pai = n.getPai();
+
+        if(pai.getFilhoEsquerdo() == n){
+
+            if(operacao == "insercao")
+                fb = 1;
+
+            else if(operacao == "remocao")
+                fb = -1;
+        }
+
+        else if(pai.getFilhoDireito() == n){
+            
+            if(operacao == "insercao")
+                fb = -1;
+
+            else if(operacao == "remocao")
+                fb = 1;
+        }
+        
+        n = pai;
+
+        n.setFator(n.getFator() + fb); // atualiza o fb do pai
+
+        if(Math.Abs(n.getFator()) > 1)
+            fazerRotacao(n);
+
+
+        if(n.getPai() != null){
+
+            if(operacao == "insercao" && n.getFator() != 0)
+                checaBalanco(n, operacao);
+
+            else if(operacao == "remocao" && n.getFator() == 0)
+                checaBalanco(n, operacao);
+        }
+
+    }
+
+
+    private void fazerRotacao(No n){
+
+        if(n.getFator() > 1){
+
+            if(n.getFilhoEsquerdo().getFator() < 0)
+                rotacaoEsquerda(n.getFilhoEsquerdo());
+            
+            rotacaoDireita(n);
+        }
+
+        else if (n.getFator() < -1){
+
+            if(n.getFilhoDireito().getFator() > 0)
+                rotacaoDireita(n.getFilhoDireito());
+            
+            rotacaoEsquerda(n);
+        }
+    }
+
+    public void rotacaoDireita(No n){
+        
+        n.getFilhoEsquerdo().setPai(n.getPai());
+
+        if(n.getPai() == null) // se for a raiz...
+            raiz = n.getFilhoEsquerdo();
+        
+        else{ // se não for...
+
+            if(n.getPai().getFilhoEsquerdo() == n)
+                n.getPai().setFilhoEsquerdo(n.getFilhoEsquerdo());
+            
+            else if (n.getPai().getFilhoDireito() == n)
+                n.getPai().setFilhoDireito(n.getFilhoEsquerdo());
+
+        }
+
+        n.setPai(n.getFilhoEsquerdo());
+        
+        if(n.getFilhoEsquerdo().getFilhoDireito() != null)
+            n.getFilhoEsquerdo().getFilhoDireito().setPai(n);
+        
+        n.setFilhoEsquerdo(n.getFilhoEsquerdo().getFilhoDireito());
+
+        n.getPai().setFilhoDireito(n);
+
+    }
+    
+    public void rotacaoEsquerda(No n){
+
+        n.getFilhoDireito().setPai(n.getPai());
+
+        if(n.getPai() == null)
+            raiz = n.getFilhoDireito();
+        
+        else
+            n.getPai().setFilhoEsquerdo(n.getFilhoDireito());
+
+        n.setPai(n.getFilhoDireito());
+        
+        if(n.getFilhoDireito().getFilhoEsquerdo() != null)
+            n.getFilhoDireito().getFilhoEsquerdo().setPai(n);
+        
+        n.setFilhoDireito(n.getFilhoDireito().getFilhoEsquerdo());
+
+        n.getPai().setFilhoEsquerdo(n);
+
+    }
+
 
     private string emOrdem(No n){
         string retorno = "";
@@ -258,30 +385,36 @@ public class Arvore{
         return retorno;
     }
 
+
+    // public int profundidade(No n){
+    //     if(ehRaiz(n))
+    //         return 0;
+    //     else
+    //         return 1 + profundidade(n.getPai());
+    // }
+
+
+    // public int altura(No n){
+    //     if(ehExterno(n))
+    //         return 0;
+        
+    //     int h = 0;
+
+    //     foreach(No w in n.filhos())
+    //         h = Math.Max(h, altura(w));
+
+    //     return h + 1;       
+
+    // }
+
+
     public override string ToString()
     {
-        string arvore = "[ ";
-
-        arvore += emOrdem(raiz) + "]";
-        return arvore;
+        return "[ " + emOrdem(raiz) + "]";
     }
 
-    public int altura(No n){
-        if(ehExterno(n))
-            return 0;
-        
-        int h = 0;
-
-        foreach(No w in n.filhos())
-            h = Math.Max(h, altura(w));
-
-        return h + 1;       
-
-    }
 
 }
-
-    
 
 
 
