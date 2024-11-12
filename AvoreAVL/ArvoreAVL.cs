@@ -187,6 +187,8 @@ public class Arvore{
         // se não achei ele...
         if(a_remover == null)
             throw new Exception("Nó não foi inserido na árvore");
+        
+        checaBalanco(a_remover, "remocao");
 
         No o_maior = new No();
 
@@ -226,8 +228,6 @@ public class Arvore{
                 }
             }
 
-            checaBalanco(a_remover, "remocao");
-
         }
 
         else{ // se o nó for externo...
@@ -244,7 +244,6 @@ public class Arvore{
                     a_remover.getPai().setFilhoDireito(null);
                 }
 
-                checaBalanco(a_remover, "remocao");
             }
             
             a_remover.setPai(null);
@@ -290,8 +289,15 @@ public class Arvore{
         if(Math.Abs(n.getFator()) > 1)
             fazerRotacao(n);
 
-        if(n.getPai() != null && n.getFator() != 0)
-            checaBalanco(n, operacao);
+
+        if(n.getPai() != null){
+
+            if(operacao == "insercao" && n.getFator() != 0)
+                checaBalanco(n, operacao);
+
+            else if(operacao == "remocao" && n.getFator() == 0)
+                checaBalanco(n, operacao);
+        }
 
     }
 
