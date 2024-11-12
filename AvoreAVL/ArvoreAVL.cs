@@ -357,7 +357,7 @@ public class Arvore{
             raiz = n.getFilhoDireito();
         
         else
-            n.getPai().setFilhoDireito(n.getFilhoDireito());
+            n.getPai().setFilhoEsquerdo(n.getFilhoDireito());
 
         n.setPai(n.getFilhoDireito());
         

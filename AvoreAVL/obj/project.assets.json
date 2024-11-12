@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\FelipeCF\\.nuget\\packages\\": {}
+    "/home/codespace/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\AvoreAVL\\AvoreAVL.csproj",
+      "projectUniqueName": "/workspaces/Csharp/AvoreAVL/AvoreAVL.csproj",
       "projectName": "AvoreAVL",
-      "projectPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\AvoreAVL\\AvoreAVL.csproj",
-      "packagesPath": "C:\\Users\\FelipeCF\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\AvoreAVL\\obj\\",
+      "projectPath": "/workspaces/Csharp/AvoreAVL/AvoreAVL.csproj",
+      "packagesPath": "/home/codespace/.nuget/packages/",
+      "outputPath": "/workspaces/Csharp/AvoreAVL/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\FelipeCF\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "/home/codespace/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -64,7 +64,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.402/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
