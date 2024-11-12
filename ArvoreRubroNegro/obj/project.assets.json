@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\AvoreAVL\\AvoreAVL.csproj",
-      "projectName": "AvoreAVL",
-      "projectPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\AvoreAVL\\AvoreAVL.csproj",
+      "projectUniqueName": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\ArvoreRubroNegro.csproj",
+      "projectName": "ArvoreRubroNegro",
+      "projectPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\ArvoreRubroNegro.csproj",
       "packagesPath": "C:\\Users\\FelipeCF\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\AvoreAVL\\obj\\",
+      "outputPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\FelipeCF\\AppData\\Roaming\\NuGet\\NuGet.Config"
