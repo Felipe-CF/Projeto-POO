@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArvoreRubroNegro")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ebeb66532480fc408caaa9f820cffca4cdeeef32")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69ca576adc3372ce094a62500b369496e46a8453")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArvoreRubroNegro")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArvoreRubroNegro")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
