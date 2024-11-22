@@ -151,112 +151,79 @@ public class Arvore{
     }
 
 
-    private int menorDosMaiores(No n){
+    private (int, int) menorDosMaiores(No n){
         
-        while(n.getFilhoEsquerdo() != null)
-            n = n.getFilhoEsquerdo();
-        
-        if (ehInterno(n)){
-            n.getFilhoDireito().setPai(n.getPai());
+        No menor_maior = n;
 
-            n.getPai().setFilhoEsquerdo(n.getFilhoDireito());
+        while(menor_maior.getFilhoEsquerdo() != folha)
+            menor_maior = menor_maior.getFilhoEsquerdo();
+        
+        if(ehInterno(menor_maior)){
+
+            No pai = menor_maior.getPai();
+
+            pai.setFilhoEsquerdo(menor_maior.getFilhoDireito());
+
+            menor_maior.getFilhoDireito().setPai(pai);
+
         }
-        else{
 
-            if(n.getPai().getFilhoEsquerdo() == n)
-                n.getPai().setFilhoEsquerdo(null);
-            else
-                n.getPai().setFilhoDireito(null);
-        }
+        menor_maior.setPai(null);
 
-        n.setPai(null);
-
-        n.setFilhoDireito(null);
-
-        n.setFilhoEsquerdo(null);
+        menor_maior.setFilhoDireito(null);
         
-        return n.getChave();
+        menor_maior.setFilhoEsquerdo(null);
+
+        return (menor_maior.getChave(), menor_maior.getCor());
     }
 
     
     public void remover(No n){
 
-        // if(ehVazia())
-        //     throw new Exception("Arvore esta vazia");
+        if(ehVazia())
+            throw new Exception("Arvore esta vazia");
 
-        // No a_remover = buscaNo(n, raiz); // tento achar o nó
+        No a_remover = buscaNo(n, raiz); // tento achar o nó
 
         // // se não achei ele...
-        // if(a_remover == null)
-        //     throw new Exception("Nó não foi inserido na árvore");
+        if(a_remover == folha)
+            throw new Exception("Nó não foi inserido na árvore");
         
-        // checaBalanco(a_remover, "remocao");
+        else if(a_remover.getFilhoDireito() != folha){
 
-        // No o_maior = new No();
+            var sucessor = menorDosMaiores(a_remover.getFilhoDireito()); // retorna chave e cor
 
-        // int chave_maior;
+            int cor_sucessor = sucessor.Item2;
 
-        // if (ehInterno(n)){
+            int cor_removido = sucessor.Item2;
 
-        //     if (temFilhoDireito(n)){
+            a_remover.setChave(sucessor.Item1); // atualizo os valores para remover o nó
 
-        //         o_maior.setchave(a_remover.getChave());
+            a_remover.setCor(cor_sucessor);
 
-        //         chave_maior = menorDosMaiores(n.getFilhoDireito());
+            size--;
 
-        //         a_remover.setchave(chave_maior);
+            // situacao 1 será ignorada
 
-        //         if(a_remover.getPai() == null)
-        //             raiz = a_remover;
+            if(cor_removido == 1 && cor_sucessor == -1){ // situacao 2
 
-        //     }
+                a_remover.setCor(sucessor.Item2 * (-1));
+
+                a_remover.setChave(sucessor.Item1);
+
+                a_remover.setDuploNegro(true);
+
+            }
+            else if (a_remover.getCor() == 1 && sucessor.Item2 == 1 && a_remover.getPai().getCor() == 1) // situacao 3
+                remocaoSituacaoTres(a_remover);
             
-        //     else{
+            else{
 
-        //         o_maior.setchave(a_remover.getChave());
+            }
 
-        //         a_remover.getFilhoEsquerdo().setPai(a_remover.getPai());
-                
-        //         if(ehRaiz(a_remover))
-        //             raiz = a_remover.getFilhoEsquerdo();
+        }
+        
 
-        //         else{
-
-        //             if(a_remover.getPai().getFilhoEsquerdo() == a_remover)
-        //                 a_remover.getPai().setFilhoEsquerdo(a_remover.getFilhoEsquerdo());
-
-        //             else
-        //                 a_remover.getPai().setFilhoDireito(a_remover.getFilhoEsquerdo());
-        //         }
-        //     }
-
-        // }
-
-        // else{ // se o nó for externo...
-
-        //     if(size == 1) // checo se é a raiz
-        //         raiz = null;
-
-        //     else{
-
-        //         if(a_remover.getPai().getFilhoEsquerdo() == a_remover)
-        //             a_remover.getPai().setFilhoEsquerdo(null);
-
-        //         else if(a_remover.getPai().getFilhoDireito() == a_remover){
-        //             a_remover.getPai().setFilhoDireito(null);
-        //         }
-
-        //     }
-            
-        //     a_remover.setPai(null);
-
-        //     o_maior = a_remover;
-
-        // }
-
-        // size--;
-
-        // return o_maior;
         
         }
 
@@ -323,11 +290,73 @@ public class Arvore{
         pai.setCor(pai.getCor() * (-1));
     }
     
+    public No oIrmao(No no){
+
+        No pai = no.getPai();
+
+        if(pai.getFilhoDireito() == no)
+            return pai.getFilhoEsquerdo();
+
+        else
+            return pai.getFilhoDireito();
+    }
+
     public void checaBalancoRemocao(No no){
         
+        No irmao = oIrmao(no);
+
+        No pai = no.getPai();
+
+        No avo = pai.getPai();
+
+        if(irmao.getCor() == -1){
+            rotacaoEsquerda(no, pai, avo);
+            
+        }
 
     }
 
+    public void remocaoSituacaoTres(No no){
+
+        No irmao = oIrmao(no);
+
+        No pai = no.getPai();
+
+        No avo = pai.getPai();
+
+        // se irmao for rubro [caso 1]
+        if(irmao.getCor() == -1){ // Faça uma rotação simples esquerda
+
+            if(pai != raiz){
+
+                if(avo.getFilhoDireito() == pai)
+                    avo.setFilhoDireito(irmao);
+                
+                else
+                    avo.setFilhoEsquerdo(irmao);
+
+            }
+
+            irmao.setPai(avo);
+
+
+            if(irmao.getFilhoEsquerdo() != folha)
+                irmao.getFilhoEsquerdo().setPai(pai);
+            
+            pai.setFilhoDireito(irmao.getFilhoEsquerdo());
+
+            pai.setPai(irmao);
+
+            irmao.setFilhoEsquerdo(pai);
+            
+            pai.setCor(pai.getCor() * (-1)); // Pinte pai de rubro
+            
+            irmao.setCor(irmao.getCor() * (-1)); // Pinte irmao de negro    
+
+        } 
+    
+
+    }
 
     // private void fazerRotacao(No n){
 
