@@ -227,6 +227,7 @@ public class Arvore{
         
         }
 
+
     private No oTio(No no){
 
         No avo = no.getPai().getPai();
@@ -237,6 +238,7 @@ public class Arvore{
             return avo.getFilhoDireito();
 
     }
+
 
     public void checaBalancoInsercao(No no){
 
@@ -270,6 +272,7 @@ public class Arvore{
 
     }
     
+
     public void insercaoCasoTres(No no, No pai, No avo){
         
         if(avo.getFilhoEsquerdo() == pai){
@@ -290,6 +293,7 @@ public class Arvore{
         pai.setCor(pai.getCor() * (-1));
     }
     
+
     private No oIrmao(No no){
 
         No pai = no.getPai();
@@ -300,6 +304,7 @@ public class Arvore{
         else
             return pai.getFilhoDireito();
     }
+
 
     private void checaBalancoRemocao(No no){
         
@@ -315,6 +320,7 @@ public class Arvore{
         }
 
     }
+
 
     private void remocaoSituacaoTres(No no){
 
@@ -362,6 +368,7 @@ public class Arvore{
             remocaoCaso4(no, pai, irmao, avo);
         
     }
+
 
     private void remocaoCaso1(No no, No pai, No irmao, No avo){
         // Faça uma rotação simples esquerda
@@ -436,35 +443,70 @@ public class Arvore{
 
     }
 
+
     private void remocaoCaso2a(No no, No pai, No irmao, No avo){
+
+        // pinta o irmao de rubro
         irmao.setCor(irmao.getCor() * (-1));
 
+        // muda a referencia do duplo negro para o pai 
         no.setDuploNegro(false);
 
         pai.setDuploNegro(true);
     }
 
-    private void remocaoCaso2b(No no, No pai, No irmao, No avo){
 
+    private void remocaoCaso2b(No no, No pai, No irmao, No avo){
+        // pintar o irmao de rubro...
         irmao.setCor(irmao.getCor() * (-1));
 
+        // e o pai de negro
         pai.setCor(pai.getCor() * (-1));
 
+        // retirar o duplo negro
         no.setDuploNegro(false);
 
     }
 
+
     private void remocaoCaso3(No no, No pai, No irmao, No avo){
 
-
+        // rotação será feita no irmao e depois o caso 4 é chamado
+        // fazer rotação simples direita, independente do lado do irmão
 
         irmao.getFilhoEsquerdo().setPai(pai);
 
-        if(pai.getFilhoDireito() == irmao)
+        if(pai.getFilhoDireito() == irmao){
+
             pai.setFilhoDireito(irmao.getFilhoEsquerdo());
-        else
+
+            if(irmao.getFilhoEsquerdo().getFilhoDireito() != folha)
+                irmao.getFilhoEsquerdo().getFilhoDireito().setPai(irmao);
+            
+            irmao.setFilhoEsquerdo(irmao.getFilhoEsquerdo().getFilhoDireito());
+
+            pai.getFilhoDireito().setFilhoDireito(irmao);
+
+            irmao.setPai(pai.getFilhoDireito());
+        }
+        
+        else{
+
             pai.setFilhoEsquerdo(irmao.getFilhoEsquerdo());
 
+            if(irmao.getFilhoEsquerdo().getFilhoDireito() != folha)
+                irmao.getFilhoEsquerdo().getFilhoDireito().setPai(irmao);
+            
+            irmao.setFilhoEsquerdo(irmao.getFilhoEsquerdo().getFilhoDireito());
+
+            pai.getFilhoEsquerdo().setFilhoDireito(irmao);
+
+            irmao.setPai(pai.getFilhoEsquerdo());
+        }
+        
+        pai.setCor(pai.getCor() * (-1)); // Pinte pai de rubro
+        
+        irmao.setCor(irmao.getCor() * (-1)); // Pinte irmao de negro 
 
     }
 
