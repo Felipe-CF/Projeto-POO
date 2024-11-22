@@ -189,43 +189,56 @@ public class Arvore{
         if(a_remover == folha)
             throw new Exception("Nó não foi inserido na árvore");
         
-        else if(a_remover.getFilhoDireito() != folha){
+        else{
 
-            var sucessor = menorDosMaiores(a_remover.getFilhoDireito()); // retorna chave e cor
+            int cor_removido = a_remover.getCor();
 
-            int cor_sucessor = sucessor.Item2;
+            if(a_remover.getFilhoDireito() != folha){
 
-            int cor_removido = sucessor.Item2;
+                var sucessor = menorDosMaiores(a_remover.getFilhoDireito()); // retorna chave e cor
 
-            a_remover.setChave(sucessor.Item1); // atualizo os valores para remover o nó
+                int cor_sucessor = sucessor.Item2;
 
-            a_remover.setCor(cor_sucessor);
+                a_remover.setChave(sucessor.Item1); // atualizo os valores para remover o nó
 
-            size--;
+                a_remover.setCor(cor_sucessor);
 
-            // situacao 1 será ignorada
+                size--;
 
-            if(cor_removido == 1 && cor_sucessor == -1){ // situacao 2
+                // situacao 1 será ignorada -  R e R
 
-                a_remover.setCor(sucessor.Item2 * (-1));
+                if(cor_removido == 1 && cor_sucessor == -1){ // situacao 2 - N e R
 
-                a_remover.setChave(sucessor.Item1);
+                    a_remover.setCor(sucessor.Item2 * (-1));
 
-                a_remover.setDuploNegro(true);
+                    a_remover.setChave(sucessor.Item1);
 
-            }
-            else if (a_remover.getCor() == 1 && cor_removido == 1) // situacao 3
-                remocaoSituacaoTres(a_remover);
-            
-            else{
+                    a_remover.setDuploNegro(true);
+
+                }
+
+                else if (cor_removido == 1 && cor_sucessor == 1) // situacao 3 - N e N
+                    remocaoSituacaoTres(a_remover);
+                
+                else{ // situacao 4 - R e N
+                    
+                    No pai = a_remover.getPai();
+
+                    if(pai.getFilhoDireito() == a_remover)
+                        pai.getFilhoEsquerdo().setCor(-1);
+                    
+                    else
+                        pai.getFilhoDireito().setCor(-1);
+
+                    remocaoSituacaoTres(a_remover);
+
+                }
 
             }
 
         }
-        
 
-        
-        }
+    }
 
 
     private No oTio(No no){
@@ -294,6 +307,58 @@ public class Arvore{
     }
     
 
+    public void rotacaoDireita(No no, No pai, No avo){
+        
+        No bisavo = avo.getPai();
+
+        if(bisavo != null){
+
+            if(bisavo.getFilhoDireito() == avo)
+                bisavo.setFilhoDireito(pai);
+            else 
+                bisavo.setFilhoEsquerdo(pai);
+
+        }
+
+        pai.setPai(bisavo);
+
+        pai.getFilhoDireito().setPai(avo);
+
+        avo.setFilhoEsquerdo(pai.getFilhoDireito());
+
+        avo.setPai(pai);
+
+        pai.setFilhoDireito(avo);
+
+    }
+    
+
+    public void rotacaoEsquerda(No no, No pai, No avo){
+
+        No bisavo = avo.getPai();
+
+        if(bisavo != null){
+
+            if(bisavo.getFilhoDireito() == avo)
+                bisavo.setFilhoDireito(pai);
+            else 
+                bisavo.setFilhoEsquerdo(pai);
+
+        }
+
+        pai.setPai(bisavo);
+
+        pai.getFilhoEsquerdo().setPai(avo);
+
+        avo.setFilhoDireito(pai.getFilhoEsquerdo());
+
+        avo.setPai(pai);
+
+        pai.setFilhoEsquerdo(avo);
+
+    }
+
+
     private No oIrmao(No no){
 
         No pai = no.getPai();
@@ -303,22 +368,6 @@ public class Arvore{
 
         else
             return pai.getFilhoDireito();
-    }
-
-
-    private void checaBalancoRemocao(No no){
-        
-        No irmao = oIrmao(no);
-
-        No pai = no.getPai();
-
-        No avo = pai.getPai();
-
-        if(irmao.getCor() == -1){
-            rotacaoEsquerda(no, pai, avo);
-            
-        }
-
     }
 
 
@@ -510,6 +559,7 @@ public class Arvore{
 
     }
 
+
     private void remocaoCaso4(No no, No pai, No irmao, No avo){
 
         int cor_pai = pai.getCor();
@@ -558,57 +608,6 @@ public class Arvore{
 
     }
 
-    public void rotacaoDireita(No no, No pai, No avo){
-        
-        No bisavo = avo.getPai();
-
-        if(bisavo != null){
-
-            if(bisavo.getFilhoDireito() == avo)
-                bisavo.setFilhoDireito(pai);
-            else 
-                bisavo.setFilhoEsquerdo(pai);
-
-        }
-
-        pai.setPai(bisavo);
-
-        pai.getFilhoDireito().setPai(avo);
-
-        avo.setFilhoEsquerdo(pai.getFilhoDireito());
-
-        avo.setPai(pai);
-
-        pai.setFilhoDireito(avo);
-
-    }
-    
-
-    public void rotacaoEsquerda(No no, No pai, No avo){
-
-        No bisavo = avo.getPai();
-
-        if(bisavo != null){
-
-            if(bisavo.getFilhoDireito() == avo)
-                bisavo.setFilhoDireito(pai);
-            else 
-                bisavo.setFilhoEsquerdo(pai);
-
-        }
-
-        pai.setPai(bisavo);
-
-        pai.getFilhoEsquerdo().setPai(avo);
-
-        avo.setFilhoDireito(pai.getFilhoEsquerdo());
-
-        avo.setPai(pai);
-
-        pai.setFilhoEsquerdo(avo);
-
-    }
-
 
     private string emOrdem(No n){
         string retorno = "";
@@ -623,6 +622,7 @@ public class Arvore{
 
         return retorno;
     }
+
 
     public override string ToString()
     {
