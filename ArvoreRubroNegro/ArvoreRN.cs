@@ -512,6 +512,50 @@ public class Arvore{
 
     private void remocaoCaso4(No no, No pai, No irmao, No avo){
 
+        int cor_pai = pai.getCor();
+
+        irmao.setPai(pai.getPai());
+
+        if(pai == raiz)
+            raiz = irmao;
+        
+        else{
+
+            if(avo.getFilhoDireito() == pai)
+                avo.setFilhoDireito(irmao);
+
+            else
+                avo.setFilhoEsquerdo(irmao);
+        }
+
+        if(pai.getFilhoDireito() == irmao){
+
+            pai.setFilhoDireito(irmao.getFilhoEsquerdo());
+
+            irmao.getFilhoEsquerdo().setPai(pai);
+
+            irmao.setFilhoEsquerdo(pai);
+            
+        }
+
+        else{
+
+            pai.setFilhoEsquerdo(irmao.getFilhoDireito());
+
+            irmao.getFilhoDireito().setPai(pai);
+
+            irmao.setFilhoDireito(pai);
+
+        }
+
+        pai.setPai(irmao);
+
+        pai.setCor(1); // pinto o pai de preto
+
+        irmao.setCor(cor_pai); // cor antiga do pai
+
+        irmao.getFilhoDireito().setCor(1);
+
     }
 
     public void rotacaoDireita(No no, No pai, No avo){
@@ -539,6 +583,7 @@ public class Arvore{
 
     }
     
+
     public void rotacaoEsquerda(No no, No pai, No avo){
 
         No bisavo = avo.getPai();
@@ -549,50 +594,6 @@ public class Arvore{
                 bisavo.setFilhoDireito(pai);
             else 
                 bisavo.setFilhoEsquerdo(pai);
-
-        }
-
-        pai.setPai(bisavo);
-
-        pai.getFilhoEsquerdo().setPai(avo);
-
-        avo.setFilhoDireito(pai.getFilhoEsquerdo());
-
-        avo.setPai(pai);
-
-        pai.setFilhoEsquerdo(avo);
-
-    }
-
-
-    public void rotacaoDireitaRemocao(No no, No pai, No irmao){
-        
-        No bisavo = avo.getPai();
-
-        if(bisavo != null){
-
-            if(bisavo.getFilhoDireito() == avo)
-                bisavo.setFilhoDireito(pai);
-            else 
-                bisavo.setFilhoEsquerdo(pai);
-
-        }
-
-        pai.setPai(bisavo);
-
-        pai.getFilhoDireito().setPai(avo);
-
-        avo.setFilhoEsquerdo(pai.getFilhoDireito());
-
-        avo.setPai(pai);
-
-        pai.setFilhoDireito(avo);
-
-    }
-    
-    public void rotacaoEsquerdaRemocao(No no, No pai, No irmao){
-
-        if(pai.getFilhoEsquerdo() == no){
 
         }
 
