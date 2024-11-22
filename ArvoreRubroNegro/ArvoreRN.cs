@@ -369,27 +369,66 @@ public class Arvore{
         no.setDuploNegro(true); // marca como duplo negro
 
         // fazer rotação simples esquerda
-        if(pai != raiz){
+        if(pai.getFilhoDireito() == irmao){
 
-            if(avo.getFilhoDireito() == pai)
-                avo.setFilhoDireito(irmao);
-            
-            else
-                avo.setFilhoEsquerdo(irmao);
+            irmao.getFilhoEsquerdo().setPai(pai);
+
+            pai.setFilhoDireito(irmao.getFilhoEsquerdo());
+
+            if(pai != raiz){ // se não for a raiz...
+
+                if(avo.getFilhoDireito() == pai) // procuro saber de que lado está o pai
+                    avo.setFilhoDireito(irmao);
+
+                else
+                    avo.setFilhoEsquerdo(irmao);
+
+            }
+
+            else{ // se for...
+
+                raiz = irmao;
+
+                irmao.setPai(null);
+
+            }
+
+            irmao.setFilhoEsquerdo(pai);
+
+            pai.setPai(irmao);
 
         }
 
-        irmao.setPai(avo);
+        // fazer rotação simples direita
+        else{
 
+            irmao.getFilhoDireito().setPai(pai);
 
-        if(irmao.getFilhoEsquerdo() != folha)
-            irmao.getFilhoEsquerdo().setPai(pai);
-        
-        pai.setFilhoDireito(irmao.getFilhoEsquerdo());
+            pai.setFilhoEsquerdo(irmao.getFilhoDireito());
 
-        pai.setPai(irmao);
+            if(pai != raiz){ // se não for a raiz...
 
-        irmao.setFilhoEsquerdo(pai);
+                if(avo.getFilhoDireito() == pai) // procuro saber de que lado está o pai
+                    avo.setFilhoDireito(irmao);
+
+                else
+                    avo.setFilhoEsquerdo(irmao);
+
+            }
+
+            else{ // se for...
+
+                raiz = irmao;
+
+                irmao.setPai(null);
+
+            }
+
+            irmao.setFilhoDireito(pai);
+
+            pai.setPai(irmao);
+
+        }
         
         pai.setCor(pai.getCor() * (-1)); // Pinte pai de rubro
         
@@ -417,6 +456,8 @@ public class Arvore{
 
     private void remocaoCaso3(No no, No pai, No irmao, No avo){
 
+
+
         irmao.getFilhoEsquerdo().setPai(pai);
 
         if(pai.getFilhoDireito() == irmao)
@@ -430,26 +471,6 @@ public class Arvore{
     private void remocaoCaso4(No no, No pai, No irmao, No avo){
 
     }
-
-
-    // private void fazerRotacao(No n){
-
-    //     if(n.getFator() > 1){
-
-    //         if(n.getFilhoEsquerdo().getFator() < 0)
-    //             rotacaoEsquerda(n.getFilhoEsquerdo());
-            
-    //         rotacaoDireita(n);
-    //     }
-
-    //     else if (n.getFator() < -1){
-
-    //         if(n.getFilhoDireito().getFator() > 0)
-    //             rotacaoDireita(n.getFilhoDireito());
-            
-    //         rotacaoEsquerda(n);
-    //     }
-    // }
 
     public void rotacaoDireita(No no, No pai, No avo){
         
@@ -502,6 +523,50 @@ public class Arvore{
     }
 
 
+    public void rotacaoDireitaRemocao(No no, No pai, No irmao){
+        
+        No bisavo = avo.getPai();
+
+        if(bisavo != null){
+
+            if(bisavo.getFilhoDireito() == avo)
+                bisavo.setFilhoDireito(pai);
+            else 
+                bisavo.setFilhoEsquerdo(pai);
+
+        }
+
+        pai.setPai(bisavo);
+
+        pai.getFilhoDireito().setPai(avo);
+
+        avo.setFilhoEsquerdo(pai.getFilhoDireito());
+
+        avo.setPai(pai);
+
+        pai.setFilhoDireito(avo);
+
+    }
+    
+    public void rotacaoEsquerdaRemocao(No no, No pai, No irmao){
+
+        if(pai.getFilhoEsquerdo() == no){
+
+        }
+
+        pai.setPai(bisavo);
+
+        pai.getFilhoEsquerdo().setPai(avo);
+
+        avo.setFilhoDireito(pai.getFilhoEsquerdo());
+
+        avo.setPai(pai);
+
+        pai.setFilhoEsquerdo(avo);
+
+    }
+
+
     private string emOrdem(No n){
         string retorno = "";
 
@@ -516,29 +581,6 @@ public class Arvore{
         return retorno;
     }
 
-
-    // public int profundidade(No n){
-    //     if(ehRaiz(n))
-    //         return 0;
-    //     else
-    //         return 1 + profundidade(n.getPai());
-    // }
-
-
-    // public int altura(No n){
-    //     if(ehExterno(n))
-    //         return 0;
-        
-    //     int h = 0;
-
-    //     foreach(No w in n.filhos())
-    //         h = Math.Max(h, altura(w));
-
-    //     return h + 1;       
-
-    // }
-
-
     public override string ToString()
     {
         return "[ " + emOrdem(raiz) + "]";
@@ -546,35 +588,3 @@ public class Arvore{
 
 
 }
-
-
-
-    // public string preOrdem(No n){
-
-    //     string retorno = n.getElemento().ToString() + " ";
-
-    //     if(ehInterno(n) && temFilhoEsquerdo(n))
-    //         retorno += emOrdem(n.getFilhoEsquerdo());
-
-    //     else if(ehInterno(n) && temFilhoDireito(n))
-    //         retorno += emOrdem(n.getFilhoDireito());
-
-    //     return retorno;
-    // }
-
-
-    // public string posOrdem(No n){
-    //     string retorno = "";
-
-    //     if(ehInterno(n) && temFilhoEsquerdo(n))
-    //         retorno += emOrdem(n.getFilhoEsquerdo());
-
-    //     else if(ehInterno(n) && temFilhoDireito(n))
-    //         retorno += emOrdem(n.getFilhoDireito());
-
-    //     retorno += n.getElemento().ToString() + " ";
-
-    //     return retorno;
-
-    // }
-
