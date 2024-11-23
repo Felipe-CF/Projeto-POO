@@ -1,5 +1,6 @@
 ﻿
-using System.Reflection;
+using System;
+using ArvoreRubroNegro;
 
 namespace AvoreRubroNegro;
 
@@ -7,17 +8,24 @@ class Program
 {
     static void Main(string[] args)
     {
-        // // No no32 = new No(32);
-        // // No no31 = new No(31);
-        // // No no35 = new No(35);
-        // // No no33 = new No(33);
-        // // No no36 = new No(36);
-        // // No no38 = new No(38);
-        // // No no25 = new No(25);
+        No no50 = new No(50);
+        No no40 = new No(40);
+        No no60 = new No(60);
+        No no30 = new No(30);
+        No no35 = new No(35);
+        No no70 = new No(70);
+        No no65 = new No(65);
 
 
 
-        // Arvore arvore = new Arvore();
+        ArvoreRN arvore = new ArvoreRN();
+
+        arvore.inserirNo(no50);
+        // arvore.inserirNo(no40);
+        arvore.inserirNo(no60);
+        arvore.inserirNo(no70);
+
+        Console.WriteLine(arvore);
 
         // // RDE
         // // arvore.inserirNo(no50);
@@ -51,18 +59,9 @@ class Program
 
         // No removido = arvore.remover(no100);
 
-        // Console.WriteLine(removido);
-        Console.WriteLine("removido");
-
-        var resultado = Program.teste();
-        Console.WriteLine(resultado.Item1);
-        int x = 2;
+        
 
     }
 
-    static (int, int) teste(){
-
-        return (1, 2);
-    }
 
 }

@@ -13,6 +13,7 @@ public class No {
         fe = null;
         pai = null;
         cor = -1;
+        duplo_negro = false;
     }
     public No(){
         fd = null;

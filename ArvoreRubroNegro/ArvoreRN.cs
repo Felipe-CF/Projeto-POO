@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.IO.Pipes;
 namespace ArvoreRubroNegro;
 
-public class Arvore{
+public class ArvoreRN{
     private No raiz;
 
     private No folha;
     private int size;
 
-    public Arvore(){
+    public ArvoreRN(){
         raiz = null;
 
         size = 0;
@@ -40,6 +40,8 @@ public class Arvore{
         n.setFilhoDireito(folha);
 
         n.setPai(null);
+
+        n.setCor(1);
     }
 
 
@@ -94,19 +96,15 @@ public class Arvore{
 
     private No buscaNo(No n, No r){
 
-        if(r == folha)
-            return r;
-
         // se n for menor, desce pela esquerda
-        if (n.getChave() < r.getChave())
+        if (n.getChave() < r.getChave() && r.getFilhoEsquerdo() != folha)
             return buscaNo(n, r.getFilhoEsquerdo());
         
         // se n for maior, desce pela direita
-        else if (n.getChave() == r.getChave())
-            return r;
-        
-        else
+        else if (n.getChave() > r.getChave() && r.getFilhoDireito() != folha)
             return buscaNo(n, r.getFilhoDireito());
+        
+        return r;
 
     }
         
@@ -257,7 +255,7 @@ public class Arvore{
 
         // caso 1 é ignorado
 
-        if(no.getPai().getCor() != -1 && no != raiz){
+        if(no.getPai().getCor() == -1){
 
             No tio = oTio(no);
 
@@ -266,16 +264,20 @@ public class Arvore{
             No avo = pai.getPai();
 
             // caso 2...
-            if(tio.getCor() == -1){ // se o tio for rubro...
+            if(tio != folha){ // se o tio for rubro...
 
                 tio.setCor(tio.getCor() * (-1));
 
                 pai.setCor(pai.getCor() * (-1));
 
-                if(avo != raiz)
+                if(avo != raiz){
+
                     avo.setCor(avo.getCor() * (-1));
+
+                    checaBalancoInsercao(avo);
+
+                }
                 
-                checaBalancoInsercao(avo);
             }
 
             else{
