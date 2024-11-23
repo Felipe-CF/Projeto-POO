@@ -315,7 +315,10 @@ public class ArvoreRN{
         
         No bisavo = avo.getPai();
 
-        if(bisavo != null){
+        if(bisavo == null)
+            raiz = pai;
+
+        else {
 
             if(bisavo.getFilhoDireito() == avo)
                 bisavo.setFilhoDireito(pai);
@@ -326,7 +329,10 @@ public class ArvoreRN{
 
         pai.setPai(bisavo);
 
-        pai.getFilhoDireito().setPai(avo);
+        if(pai.getFilhoDireito() != folha)
+            pai.getFilhoDireito().setPai(avo);
+
+        pai.getFilhoEsquerdo().setPai(avo);
 
         avo.setFilhoEsquerdo(pai.getFilhoDireito());
 

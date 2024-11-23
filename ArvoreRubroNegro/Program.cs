@@ -21,9 +21,8 @@ class Program
         ArvoreRN arvore = new ArvoreRN();
 
         arvore.inserirNo(no50);
-        // arvore.inserirNo(no40);
-        arvore.inserirNo(no60);
         arvore.inserirNo(no70);
+        arvore.inserirNo(no60);
 
         Console.WriteLine(arvore);
 
