@@ -176,18 +176,24 @@ public class ArvoreRN{
     }
 
     
-    public void remover(No n){
+    public No remover(No n){
 
         if(ehVazia())
             throw new Exception("Arvore esta vazia");
 
         No a_remover = buscaNo(n, raiz); // tento achar o nó
 
+        No retorno = new No();
+
         // // se não achei ele...
         if(a_remover == folha)
             throw new Exception("Nó não foi inserido na árvore");
         
         else{
+
+            retorno.setChave(a_remover.getChave());
+
+            retorno.setCor(a_remover.getCor());
 
             int cor_removido = a_remover.getCor();
 
@@ -218,7 +224,7 @@ public class ArvoreRN{
                 else if (cor_removido == 1 && cor_sucessor == 1) // situacao 3 - N e N
                     remocaoSituacaoTres(a_remover);
                 
-                else{ // situacao 4 - R e N
+                else if(cor_removido == -1 && cor_sucessor == 1){ // situacao 4 - R e N
                     
                     No pai = a_remover.getPai();
 
@@ -235,6 +241,8 @@ public class ArvoreRN{
             }
 
         }
+
+        return retorno;
 
     }
 
