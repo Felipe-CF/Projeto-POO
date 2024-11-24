@@ -290,22 +290,63 @@ public class ArvoreRN{
 
     public void insercaoCasoTres(No no, No pai, No avo){
         
-        if(avo.getFilhoEsquerdo() == pai){
+        // gira para a direita
+        if(avo.getFilhoEsquerdo() == pai){ 
 
-            if(pai.getFilhoDireito() == no)
-                rotacaoEsquerda(no, pai, avo);
-            
-            rotacaoDireita(no, pai, avo);
-        }
-        else{
-            if(pai.getFilhoEsquerdo() == no)
+            if(pai.getFilhoDireito() == no){
+
+                no.setPai(avo);
+
+                avo.setFilhoEsquerdo(no);
+
+                if(no.getFilhoEsquerdo() != folha)
+                    no.getFilhoEsquerdo().setPai(pai);
+                
+                pai.setFilhoDireito(no.getFilhoEsquerdo());
+
+                pai.setPai(no);
+
+                no.setFilhoEsquerdo(pai);
+
+                rotacaoDireita(pai, no, avo);
+
+            }
+
+            else
                 rotacaoDireita(no, pai, avo);
-            
-            rotacaoEsquerda(no, pai, avo);
+
             
         }
 
-        pai.setCor(pai.getCor() * (-1));
+        // gira para a esquerda
+        else{
+
+            if(pai.getFilhoEsquerdo() == no){
+                
+                no.setPai(avo);
+
+                avo.setFilhoDireito(no);
+
+                if(no.getFilhoDireito() != folha)
+                    no.getFilhoDireito().setPai(pai);
+                
+                pai.setFilhoEsquerdo(no.getFilhoDireito());
+
+                pai.setPai(no);
+
+                no.setFilhoDireito(pai);
+
+                rotacaoEsquerda(pai, no, avo);
+            }
+
+            else
+                rotacaoEsquerda(no, pai, avo);
+
+            
+            
+        }
+
+        no.setCor(no.getCor() * (-1));
 
         avo.setCor(avo.getCor() * (-1));
     }
@@ -322,6 +363,7 @@ public class ArvoreRN{
 
             if(bisavo.getFilhoDireito() == avo)
                 bisavo.setFilhoDireito(pai);
+
             else 
                 bisavo.setFilhoEsquerdo(pai);
 

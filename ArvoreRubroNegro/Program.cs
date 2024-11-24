@@ -8,13 +8,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        No no50 = new No(50);
-        No no40 = new No(40);
-        No no60 = new No(60);
         No no30 = new No(30);
         No no35 = new No(35);
-        No no70 = new No(70);
+        No no40 = new No(40);
+        No no50 = new No(50);
+        No no60 = new No(60);
         No no65 = new No(65);
+        No no70 = new No(70);
+        No no75 = new No(75);
+        No no80 = new No(80);
 
 
 
@@ -22,7 +24,12 @@ class Program
 
         arvore.inserirNo(no50);
         arvore.inserirNo(no70);
-        arvore.inserirNo(no60);
+        arvore.inserirNo(no40);
+        // arvore.inserirNo(no30);
+        arvore.inserirNo(no80);
+        arvore.inserirNo(no75);
+        // arvore.inserirNo(no65);
+        // arvore.inserirNo(no35);
 
         Console.WriteLine(arvore);
 
