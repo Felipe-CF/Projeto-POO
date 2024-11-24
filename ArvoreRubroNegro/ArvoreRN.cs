@@ -158,7 +158,11 @@ public class ArvoreRN{
 
         No pai = menor_maior.getPai();
         
-        pai.setFilhoEsquerdo(menor_maior.getFilhoDireito());
+        if(pai.getFilhoDireito() == menor_maior)
+            pai.setFilhoDireito(folha);
+        
+        else
+            pai.setFilhoEsquerdo(menor_maior.getFilhoDireito());
         
         if(ehInterno(menor_maior))
             menor_maior.getFilhoDireito().setPai(pai);
