@@ -474,19 +474,19 @@ public class ArvoreRN{
 
         // [caso 2b]
         // se no é negro, tem irmão negro, com filhos negros e pai rubro.
-        else if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == 1 && 
+        if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == 1 && 
         se_filho_esquerdo_preto && se_filho_direito_preto && pai.getCor() == -1)
             remocaoCaso2b(no, pai, irmao, avo);
 
         // [caso 3]
         // se no é negro, tem irmão negro, com filho direito negro e o esquerdo, rubro; pai de qualquer cor.
-        else if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == 1 && 
+        if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == 1 && 
         irmao.getFilhoEsquerdo().getCor() == -1)
-            remocaoCaso3(no, pai, irmao, avo);
+            irmao = remocaoCaso3(no, pai, irmao, avo);
         
         // [caso 4]
         // se no é negro, tem irmão negro, com filho direito negro e o esquerdo, qualquer cor; pai de qualquer cor.
-        else if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == -1)
+        if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == -1)
             remocaoCaso4(no, pai, irmao, avo);
         
     }
@@ -593,7 +593,7 @@ public class ArvoreRN{
     }
 
 
-    private void remocaoCaso3(No no, No pai, No irmao, No avo){
+    private No remocaoCaso3(No no, No pai, No irmao, No avo){
 
         // rotação será feita no irmao e depois o caso 4 é chamado
         // fazer rotação simples direita, independente do lado do irmão
@@ -628,9 +628,12 @@ public class ArvoreRN{
             irmao.setPai(pai.getFilhoEsquerdo());
         }
         
-        pai.setCor(pai.getCor() * (-1)); // Pinte pai de rubro
         
-        irmao.setCor(irmao.getCor() * (-1)); // Pinte irmao de negro 
+        irmao.setCor(-1); // Pinte irmao de negro
+
+        irmao.getPai().setCor(1); // Pinte irmao de negro 
+
+        return irmao.getPai();
 
     }
 
@@ -657,7 +660,8 @@ public class ArvoreRN{
 
             pai.setFilhoDireito(irmao.getFilhoEsquerdo());
 
-            irmao.getFilhoEsquerdo().setPai(pai);
+            if(irmao.getFilhoEsquerdo() != folha)
+                irmao.getFilhoEsquerdo().setPai(pai);
 
             irmao.setFilhoEsquerdo(pai);
             
@@ -667,7 +671,8 @@ public class ArvoreRN{
 
             pai.setFilhoEsquerdo(irmao.getFilhoDireito());
 
-            irmao.getFilhoDireito().setPai(pai);
+            if(irmao.getFilhoDireito() != folha)
+                irmao.getFilhoDireito().setPai(pai);
 
             irmao.setFilhoDireito(pai);
 
