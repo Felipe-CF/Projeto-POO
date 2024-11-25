@@ -355,7 +355,7 @@ public class ArvoreRN{
             
         }
 
-        no.setCor(no.getCor() * (-1));
+        pai.setCor(pai.getCor() * (-1));
 
         avo.setCor(avo.getCor() * (-1));
     }
@@ -450,7 +450,15 @@ public class ArvoreRN{
 
             remocaoCaso1(no, pai, irmao, avo);
 
+            if(pai.getFilhoEsquerdo() == no)
+                irmao = pai.getFilhoDireito();
+
+            else    
+                irmao = pai.getFilhoDireito();
+
             remocaoCaso2b(no, pai, irmao, avo);
+
+            return;
 
         }
         
@@ -466,19 +474,19 @@ public class ArvoreRN{
 
         // [caso 2b]
         // se no é negro, tem irmão negro, com filhos negros e pai rubro.
-        if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == 1 && 
+        else if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == 1 && 
         se_filho_esquerdo_preto && se_filho_direito_preto && pai.getCor() == -1)
             remocaoCaso2b(no, pai, irmao, avo);
 
         // [caso 3]
         // se no é negro, tem irmão negro, com filho direito negro e o esquerdo, rubro; pai de qualquer cor.
-        if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == 1 && 
+        else if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == 1 && 
         irmao.getFilhoEsquerdo().getCor() == -1)
             remocaoCaso3(no, pai, irmao, avo);
         
         // [caso 4]
         // se no é negro, tem irmão negro, com filho direito negro e o esquerdo, qualquer cor; pai de qualquer cor.
-        if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == -1)
+        else if(no.getCor() == 1 && irmao.getCor() == 1 && irmao.getFilhoDireito().getCor() == -1)
             remocaoCaso4(no, pai, irmao, avo);
         
     }
@@ -553,7 +561,9 @@ public class ArvoreRN{
         
         pai.setCor(pai.getCor() * (-1)); // Pinte pai de rubro
         
-        irmao.setCor(irmao.getCor() * (-1)); // Pinte irmao de negro 
+        irmao.setCor(irmao.getCor() * (-1)); // Pinte irmao de negro
+
+        irmao = pai.getFilhoDireito(); 
 
     }
 
