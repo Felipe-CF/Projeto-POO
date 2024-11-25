@@ -229,11 +229,7 @@ public class ArvoreRN{
                     
                     No pai = a_remover.getPai();
 
-                    if(pai.getFilhoDireito() == a_remover)
-                        pai.getFilhoEsquerdo().setCor(-1);
-                    
-                    else
-                        pai.getFilhoDireito().setCor(-1);
+                    a_remover.setCor(-1);
 
                     remocaoSituacaoTres(a_remover);
 
@@ -462,9 +458,19 @@ public class ArvoreRN{
 
         }
         
-        bool se_filho_direito_preto = (irmao.getFilhoDireito().getCor() == 1) || (irmao.getFilhoDireito() == folha);
+        bool se_filho_direito_preto, se_filho_esquerdo_preto;
 
-        bool se_filho_esquerdo_preto = (irmao.getFilhoEsquerdo().getCor() == 1) || (irmao.getFilhoEsquerdo() == folha);
+        if(irmao.getFilhoDireito() != folha){
+            se_filho_direito_preto = irmao.getFilhoDireito().getCor() == 1; 
+        }
+        else
+            se_filho_direito_preto = true;
+
+        if(irmao.getFilhoEsquerdo() != folha){
+            se_filho_esquerdo_preto = irmao.getFilhoEsquerdo().getCor() == 1; 
+        }
+        else
+            se_filho_esquerdo_preto = true;
 
         // [caso 2a]
         // se x é negro, tem irmão negro, com filhos negros e pai negro.

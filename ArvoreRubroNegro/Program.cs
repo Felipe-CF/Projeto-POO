@@ -10,37 +10,32 @@ class Program
     {
         ArvoreRN arvore = new ArvoreRN();
 
-        No no14 = new No(14);
-
-        No no20 = new No(20);
-
+        
         No no7 = new No(7);
 
         No no9 = new No(9);
 
-        No no16 = new No(16);
+        No no5 = new No(5);
 
-        No no11 = new No(11);
+        No no8 = new No(8);
 
-        No no22 = new No(22);
+        No no10 = new No(10);
 
-        arvore.inserirNo(no9);
-
-        arvore.inserirNo(no14);
-
-        arvore.inserirNo(no20);
-        
         arvore.inserirNo(no7);
 
-        arvore.inserirNo(no11);
+        arvore.inserirNo(no5);
 
-        arvore.inserirNo(no16);
+        arvore.inserirNo(no9);
+        
+        arvore.inserirNo(no8);
 
-        arvore.inserirNo(no22);
+        arvore.inserirNo(no10);
 
-        no11.setCor(1);
+        no9.setCor(-1);
 
-        no22.setCor(1);
+        no8.setCor(1);
+        
+        no10.setCor(1);
 
         Console.WriteLine(arvore);
 
