@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\ArvoreRubroNegro.csproj": {}
+    "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\ArvoreRubroNegro.csproj": {}
   },
   "projects": {
-    "c:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\ArvoreRubroNegro.csproj": {
+    "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\ArvoreRubroNegro.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\ArvoreRubroNegro.csproj",
+        "projectUniqueName": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\ArvoreRubroNegro.csproj",
         "projectName": "ArvoreRubroNegro",
-        "projectPath": "c:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\ArvoreRubroNegro.csproj",
+        "projectPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\ArvoreRubroNegro.csproj",
         "packagesPath": "C:\\Users\\FelipeCF\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\obj\\",
+        "outputPath": "C:\\Users\\FelipeCF\\Desktop\\Codigos\\Csharp\\ArvoreRubroNegro\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\FelipeCF\\AppData\\Roaming\\NuGet\\NuGet.Config"
