@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 
 public class Vertice{
-    protected ArrayList arestas_in;
-    protected ArrayList arestas_out;
+    protected List<Aresta> arestas_in;
+    protected List<Aresta> arestas_out;
     protected Object rotulo;
 
     public Vertice(Object r){
