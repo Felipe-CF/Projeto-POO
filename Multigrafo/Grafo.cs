@@ -206,4 +206,28 @@ public class Grafo : Multigrafo{
 
     }
 
+    public IEnumerator<Aresta> arestasIncidentes(Vertice v){
+        Vertice v1 = buscaVertice(v);
+
+        if(v1 == null){
+            Console.WriteLine($"vértice {v1} não inserido no grafo");
+            return null;
+        }
+
+        List<Aresta> retorno = new List<Aresta>();
+
+        foreach(Aresta aresta in arestas){
+            if(aresta.vertices().Contains(v1))
+                retorno.Add(aresta);
+        }
+
+        return retorno.GetEnumerator();
+    }
+
+    public List<Vertice> getVertices(){
+        return vertices;
+    }
+    public List<Aresta> GetArestas(){
+        return arestas;
+    }
 }
