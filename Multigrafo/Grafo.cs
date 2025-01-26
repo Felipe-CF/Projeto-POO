@@ -140,11 +140,21 @@ public class Grafo : Multigrafo{
     }
 
     public Aresta inserirAresta(Vertice v, Vertice w, Object o){
-        Aresta a = new Aresta(v, w, o);
+        if(v == null || w == null){
+            Console.WriteLine("um ou mais vertices passados são vazios");
+            return null;
+        }
+        else{
+            Aresta a = new Aresta(v, w, o);
 
-        arestas.Add(a);
+            arestas.Add(a);
 
-        return a;
+            v.setAresta(a);
+
+            w.setAresta(a);
+
+            return a;
+        }
     }
 
     public Object removeVértice(Vertice v){
@@ -190,11 +200,11 @@ public class Grafo : Multigrafo{
 
         foreach(Vertice vertice in vertices){
             
-            if (vertice.arestasIn().Contains(aresta_remover))
+            if (vertice.arestasIn().Contains(aresta_remover)){
                 vertice.arestasIn().Remove(aresta_remover);
-
-            else if(vertice.arestasOut().Contains(aresta_remover))
                 vertice.arestasOut().Remove(aresta_remover);
+                break;
+            }
 
         }
 

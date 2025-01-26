@@ -25,6 +25,17 @@ public class Vertice{
         return arestas_out;
     }
 
+    public void setAresta(Aresta a){
+        arestas_in.Add(a);
+        arestas_out.Add(a);
+    }
+    public void setArestaIn(Aresta a){
+        arestas_in.Add(a);
+    }
+    public void setArestaOut(Aresta a){
+        arestas_out.Add(a);
+    }
+
     public override string ToString() {
         return rotulo.ToString();
     }
