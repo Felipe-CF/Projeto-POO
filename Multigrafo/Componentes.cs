@@ -7,7 +7,6 @@ public class Vertice{
     protected Object rotulo;
 
     public Vertice(Object r){
-        
         rotulo = r;
         arestas_in = arestas_out = null;
     }
@@ -32,7 +31,13 @@ public class Aresta{
         vertice_in = i;
         vertice_out = o;
     }
+    public Vertice verticeIn(){
+        return vertice_in;
+    }
+    public Vertice verticeOut(){
+        return vertice_out;
+    }
     public override string ToString() {
-        return rotulo.ToString();
+        return $"{vertice_in} - {rotulo.ToString()} - {vertice_out}";
     }
 }
