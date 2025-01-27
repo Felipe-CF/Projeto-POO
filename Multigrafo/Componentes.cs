@@ -4,17 +4,20 @@ using System.Collections;
 public class Vertice{
     protected List<Aresta> arestas_in;
     protected List<Aresta> arestas_out;
+    protected List<Aresta> arestas;
     protected Object rotulo;
 
     public Vertice(Object r){
         rotulo = r;
         arestas_in = new List<Aresta>();
         arestas_out = new List<Aresta>();
+        arestas = new List<Aresta>();
     }
 
     public Object getRotulo() {
         return rotulo;
     }
+
     public void setRotulo(Object r) {
         rotulo = r;
     }
@@ -22,19 +25,39 @@ public class Vertice{
     public List<Aresta> arestasIn(){
         return arestas_in;
     }
+
     public List<Aresta> arestasOut(){
         return arestas_out;
     }
 
     public void setAresta(Aresta a){
-        arestas_in.Add(a);
-        arestas_out.Add(a);
+        arestas.Add(a);
     }
+    public List<Aresta> getAresta(){
+        return arestas;
+    }
+
     public void setArestaIn(Aresta a){
         arestas_in.Add(a);
     }
+
     public void setArestaOut(Aresta a){
         arestas_out.Add(a);
+    }
+
+    public void removerAresta(Aresta a){
+
+        if(a != null){
+            if(arestas.Contains(a))
+                arestas.Remove(a);
+            
+            else if(arestas_in.Contains(a))
+                arestas_in.Remove(a);
+
+            else if(arestas_out.Contains(a))
+                arestas_out.Remove(a);
+        }
+
     }
 
     public override string ToString() {
@@ -42,6 +65,7 @@ public class Vertice{
     }
 
 }
+
 
 public class Aresta{
     protected Object rotulo;
@@ -95,3 +119,4 @@ public class Aresta{
         return $"{vertice_in} - {rotulo.ToString()} - {vertice_out}";
     }
 }
+

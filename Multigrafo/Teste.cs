@@ -27,7 +27,7 @@ class Teste
         grafo.inserirAresta(v5, v1, "a4");
         grafo.inserirAresta(v2, v4, "a5");
 
-        Object o = grafo.removeVértice(v4);
+        Object o = grafo.removeVertice(v4);
 
 
 

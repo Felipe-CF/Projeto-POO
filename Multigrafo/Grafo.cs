@@ -170,7 +170,7 @@ public class Grafo : Multigrafo{
         }
     }
 
-    public Object removeVértice(Vertice v){
+    public Object removeVertice(Vertice v){
         Vertice vertice_remover = buscaVertice(v);
 
         if(vertice_remover == null){
@@ -181,15 +181,24 @@ public class Grafo : Multigrafo{
 
         foreach(Aresta aresta in arestas){
             
-            if (aresta.verticeIn().getRotulo().ToString() == vertice_remover.getRotulo().ToString()){
+            if (aresta.verticeIn() == vertice_remover){
                 aresta.setVerticeIn(null);
                 Object o = removeAresta(aresta);
             }
 
-            else if (aresta.verticeOut().getRotulo().ToString() == vertice_remover.getRotulo().ToString()){
+            else if (aresta.verticeOut() == vertice_remover){
                 aresta.setVerticeOut(null);
                 Object o = removeAresta(aresta);
             }
+            // if (aresta.verticeIn().getRotulo().ToString() == vertice_remover.getRotulo().ToString()){
+            //     aresta.setVerticeIn(null);
+            //     Object o = removeAresta(aresta);
+            // }
+
+            // else if (aresta.verticeOut().getRotulo().ToString() == vertice_remover.getRotulo().ToString()){
+            //     aresta.setVerticeOut(null);
+            //     Object o = removeAresta(aresta);
+            // }
 
         }
 
@@ -210,15 +219,8 @@ public class Grafo : Multigrafo{
 
         } 
 
-        foreach(Vertice vertice in vertices){
-            
-            if (vertice.arestasIn().Contains(aresta_remover)){
-                vertice.arestasIn().Remove(aresta_remover);
-                vertice.arestasOut().Remove(aresta_remover);
-                break;
-            }
-
-        }
+        foreach(Vertice vertice in vertices)
+            vertice.removerAresta(aresta_remover);
 
         Object retorno = aresta_remover.getRotulo();
 
@@ -249,8 +251,45 @@ public class Grafo : Multigrafo{
     public List<Vertice> getVertices(){
         return vertices;
     }
+
     public List<Aresta> GetArestas(){
         return arestas;
     }
+
+    public bool ehDirecionada(Aresta a){
+
+        if(a == null){
+            Console.WriteLine("Aresta passada é nula");
+            return false;
+        }
+
+        for(int i =0; i < vertices.Count; i++){
+
+            if(vertices[i].getAresta().Contains(a))
+                return false;
+
+        }
+
+        return true;
+    }
+
+    public void inserirArestaDirecionada(Vertice v_in, Vertice v_out, Object o){
+
+        Aresta aresta = new Aresta(v_in, v_out, o);
+
+        for(int i = 0; i < vertices.Count; i++){
+
+            if(vertices[i] == v_in)
+                vertices[i].setArestaIn(aresta);
+
+            else if(vertices[i] == v_out)
+                vertices[i].setArestaOut(aresta);
+
+        }
+
+        arestas.Add(aresta);
+    }
+
+
 
 }
