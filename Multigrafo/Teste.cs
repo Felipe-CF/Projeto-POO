@@ -21,12 +21,17 @@ class Teste
         grafo.inserirVertice(v4);
         grafo.inserirVertice(v5);
 
-        Aresta a1 = new Aresta("a1");
-        Aresta a2 = new Aresta("a2");
-        Aresta a3 = new Aresta("a3");
-        Aresta a4 = new Aresta("a4");
-        Aresta a5 = new Aresta("a5");
+        grafo.inserirAresta(v1, v2, "a1");
+        grafo.inserirAresta(v2, v3, "a2");
+        grafo.inserirAresta(v3, v5, "a3");
+        grafo.inserirAresta(v5, v1, "a4");
+        grafo.inserirAresta(v2, v4, "a5");
 
+        Object o = grafo.removeVértice(v4);
+
+
+
+        int x = 2;
         
 
 

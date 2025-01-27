@@ -2,8 +2,11 @@ namespace Multigrafo;
 using System.Collections.Generic;
 
 public class Grafo : Multigrafo{
+
     protected List<Vertice> vertices;
+
     protected List<Aresta> arestas;
+
     protected int grau;
 
     public Grafo(){
@@ -28,10 +31,15 @@ public class Grafo : Multigrafo{
         if (vertices.Count == 0)
             return null;
         
-        foreach(Vertice vertice in vertices){
-            if(vertice == v)
-                return vertice;
+        for(int i = 0; i < vertices.Count; i++){
+            if(vertices[i].getRotulo().ToString() == v.getRotulo().ToString())
+            return vertices[i];
         }
+
+        // foreach(Vertice vertice in vertices){
+        //     if(vertice.getRotulo() == v.getRotulo())
+        //         return vertice;
+        // }
 
         return null;
     }
@@ -145,13 +153,18 @@ public class Grafo : Multigrafo{
             return null;
         }
         else{
-            Aresta a = new Aresta(v, w, o);
+
+            Vertice v1 = buscaVertice(v);
+
+            Vertice v2 = buscaVertice(w);
+
+            Aresta a = new Aresta(v1, v2, o);
 
             arestas.Add(a);
 
-            v.setAresta(a);
+            v1.setAresta(a);
 
-            w.setAresta(a);
+            v2.setAresta(a);
 
             return a;
         }
@@ -168,13 +181,12 @@ public class Grafo : Multigrafo{
 
         foreach(Aresta aresta in arestas){
             
-
-            if (aresta.verticeIn() == vertice_remover){
+            if (aresta.verticeIn().getRotulo().ToString() == vertice_remover.getRotulo().ToString()){
                 aresta.setVerticeIn(null);
                 Object o = removeAresta(aresta);
             }
 
-            else if (aresta.verticeOut() == vertice_remover){
+            else if (aresta.verticeOut().getRotulo().ToString() == vertice_remover.getRotulo().ToString()){
                 aresta.setVerticeOut(null);
                 Object o = removeAresta(aresta);
             }
@@ -240,4 +252,5 @@ public class Grafo : Multigrafo{
     public List<Aresta> GetArestas(){
         return arestas;
     }
+
 }

@@ -8,7 +8,8 @@ public class Vertice{
 
     public Vertice(Object r){
         rotulo = r;
-        arestas_in = arestas_out = null;
+        arestas_in = new List<Aresta>();
+        arestas_out = new List<Aresta>();
     }
 
     public Object getRotulo() {
