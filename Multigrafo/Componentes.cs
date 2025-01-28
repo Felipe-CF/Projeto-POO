@@ -30,11 +30,12 @@ public class Vertice{
         return arestas_out;
     }
 
+    public List<Aresta> getArestas(){
+        return arestas;
+    }
+    
     public void setAresta(Aresta a){
         arestas.Add(a);
-    }
-    public List<Aresta> getAresta(){
-        return arestas;
     }
 
     public void setArestaIn(Aresta a){
@@ -71,6 +72,7 @@ public class Aresta{
     protected Object rotulo;
     protected Vertice vertice_in;
     protected Vertice vertice_out;
+    
 
     public Aresta(Object r){
         rotulo = r;

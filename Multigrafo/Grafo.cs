@@ -16,12 +16,12 @@ public class Grafo : Multigrafo{
     }
 
     protected Aresta buscaAresta(Aresta a){
-        if (grau == 0)
-            return null;
+        // if (grau == 0)
+        //     return null;
         
-        foreach(Aresta aresta in arestas){
-            if(aresta == a)
-                return aresta;
+        for(int i = 0; i < arestas.Count; i++){
+            if(arestas[i].getRotulo().ToString() == a.getRotulo().ToString())
+            return arestas[i];
         }
 
         return null;
@@ -35,11 +35,6 @@ public class Grafo : Multigrafo{
             if(vertices[i].getRotulo().ToString() == v.getRotulo().ToString())
             return vertices[i];
         }
-
-        // foreach(Vertice vertice in vertices){
-        //     if(vertice.getRotulo() == v.getRotulo())
-        //         return vertice;
-        // }
 
         return null;
     }
@@ -179,27 +174,16 @@ public class Grafo : Multigrafo{
 
         } 
 
-        foreach(Aresta aresta in arestas){
-            
-            if (aresta.verticeIn() == vertice_remover){
-                aresta.setVerticeIn(null);
-                Object o = removeAresta(aresta);
-            }
+        List<Aresta> arestas_remover = new List<Aresta>();
 
-            else if (aresta.verticeOut() == vertice_remover){
-                aresta.setVerticeOut(null);
-                Object o = removeAresta(aresta);
-            }
-            // if (aresta.verticeIn().getRotulo().ToString() == vertice_remover.getRotulo().ToString()){
-            //     aresta.setVerticeIn(null);
-            //     Object o = removeAresta(aresta);
-            // }
+        arestas_remover.AddRange(vertice_remover.getArestas());
 
-            // else if (aresta.verticeOut().getRotulo().ToString() == vertice_remover.getRotulo().ToString()){
-            //     aresta.setVerticeOut(null);
-            //     Object o = removeAresta(aresta);
-            // }
+        arestas_remover.AddRange(vertice_remover.arestasIn());
 
+        arestas_remover.AddRange(vertice_remover.arestasOut());
+
+        foreach(Aresta aresta in arestas_remover){
+            Object o = removeAresta(aresta);
         }
 
         Object retorno = vertice_remover.getRotulo();
@@ -265,7 +249,7 @@ public class Grafo : Multigrafo{
 
         for(int i =0; i < vertices.Count; i++){
 
-            if(vertices[i].getAresta().Contains(a))
+            if(vertices[i].getArestas().Contains(a))
                 return false;
 
         }
@@ -289,7 +273,5 @@ public class Grafo : Multigrafo{
 
         arestas.Add(aresta);
     }
-
-
 
 }
