@@ -49,6 +49,7 @@ public class Vertice{
     public void removerAresta(Aresta a){
 
         if(a != null){
+            
             if(arestas.Contains(a))
                 arestas.Remove(a);
             

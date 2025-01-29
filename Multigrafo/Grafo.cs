@@ -16,12 +16,10 @@ public class Grafo : Multigrafo{
     }
 
     protected Aresta buscaAresta(Aresta a){
-        // if (grau == 0)
-        //     return null;
         
-        for(int i = 0; i < arestas.Count; i++){
-            if(arestas[i].getRotulo().ToString() == a.getRotulo().ToString())
-            return arestas[i];
+        foreach(Aresta aresta in arestas){
+            if(Object.ReferenceEquals(a, aresta))
+            return aresta;
         }
 
         return null;
@@ -61,16 +59,17 @@ public class Grafo : Multigrafo{
 
     public Vertice oposto(Vertice v, Aresta a){
         Aresta aresta = buscaAresta(a);
+
         if (aresta == null){
             Console.WriteLine("aresta não encontrada");
 
             return null;
         } 
 
-        else if(v == aresta.verticeIn())
+        else if(Object.ReferenceEquals(v ,aresta.verticeIn()))
             return aresta.verticeOut();
 
-        else if(v == aresta.verticeOut())
+        else if(Object.ReferenceEquals(v ,aresta.verticeOut()))
             return aresta.verticeIn();
         
         Console.WriteLine($"vértice {v} não incidente na aresta");
@@ -174,18 +173,24 @@ public class Grafo : Multigrafo{
 
         } 
 
-        List<Aresta> arestas_remover = new List<Aresta>();
+        List<Aresta> todas_arestas = new List<Aresta>();
 
-        arestas_remover.AddRange(vertice_remover.getArestas());
+        todas_arestas.AddRange(vertice_remover.getArestas());
 
-        arestas_remover.AddRange(vertice_remover.arestasIn());
+        todas_arestas.AddRange(vertice_remover.arestasIn());
 
-        arestas_remover.AddRange(vertice_remover.arestasOut());
+        todas_arestas.AddRange(vertice_remover.arestasOut());
 
-        foreach(Aresta aresta in arestas_remover){
-            Object o = removeAresta(aresta);
+        foreach(Aresta aresta in todas_arestas){
+            Vertice oposto_de_v = oposto(vertice_remover, aresta);
+
+            oposto_de_v.removerAresta(aresta);
+
+            arestas.Remove(aresta);
         }
 
+        vertices.Remove(vertice_remover);
+        
         Object retorno = vertice_remover.getRotulo();
 
         vertice_remover = null;

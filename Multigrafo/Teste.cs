@@ -15,6 +15,7 @@ class Teste
         Vertice v4 = grafo.inserirVertice(4);
         Vertice v5 = grafo.inserirVertice(5);
 
+
         Aresta a1 = grafo.inserirAresta(v1, v2, "a1");
         Aresta a2 = grafo.inserirAresta(v2, v3, "a2");
         Aresta a3 = grafo.inserirAresta(v3, v5, "a3");
@@ -22,7 +23,11 @@ class Teste
         Aresta a5 = grafo.inserirAresta(v2, v4, "a5");
 
         Object o = grafo.removeVertice(v4);
+        Object m = grafo.removeVertice(v2);
 
+        // List<Aresta> arestas = grafo.GetArestas();
+
+        // arestas.Remove(a5);
 
 
         int x = 2;
