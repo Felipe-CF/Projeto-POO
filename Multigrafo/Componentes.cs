@@ -62,7 +62,44 @@ public class Vertice{
 
     }
 
+    public bool ehIncidente(Aresta a){
+            
+        if(arestas.Contains(a) || arestas_in.Contains(a) || arestas_out.Contains(a))
+            return true;
+        
+        return false;
+
+    }
+
+    public bool seEhArestaIn(Aresta a){
+            
+        if(arestas_in.Contains(a))
+            return true;
+        
+        return false;
+
+    }
+
+    public bool seEhArestaOut(Aresta a){
+            
+        if(arestas_out.Contains(a))
+            return true;
+        
+        return false;
+
+    }
+
+    public bool seEhArestaSemDirecao(Aresta a){
+            
+        if(arestas.Contains(a))
+            return true;
+        
+        return false;
+
+    }
+
     public override string ToString() {
+        
         return rotulo.ToString();
     }
 
@@ -81,8 +118,8 @@ public class Aresta{
     }
     public Aresta(Vertice v1, Vertice v2, Object r){
         rotulo = r;
-        vertice_in = v1;
-        vertice_out = v2;
+        vertice_in = v2;
+        vertice_out = v1;
     }
     public Vertice verticeIn(){
         return vertice_in;
@@ -103,6 +140,14 @@ public class Aresta{
     }
     public void setVerticeOut(Vertice v) {
         vertice_out = v;
+    }
+
+    public bool seIncide(Vertice v) {
+        if (Object.ReferenceEquals(v ,vertice_in) || Object.ReferenceEquals(v ,vertice_out))
+            return true;
+        
+        return false;
+        
     }
 
     

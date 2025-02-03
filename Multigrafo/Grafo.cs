@@ -16,6 +16,8 @@ public class Grafo : Multigrafo{
     }
 
     protected Aresta buscaAresta(Aresta a){
+        if (a == null)
+            return null;
         
         foreach(Aresta aresta in arestas){
             if(Object.ReferenceEquals(a, aresta))
@@ -26,12 +28,12 @@ public class Grafo : Multigrafo{
     }
 
     protected Vertice buscaVertice(Vertice v){
-        if (vertices.Count == 0)
+        if (v == null)
             return null;
         
-        for(int i = 0; i < vertices.Count; i++){
-            if(vertices[i].getRotulo().ToString() == v.getRotulo().ToString())
-            return vertices[i];
+        foreach(Vertice vertice in vertices){
+            if(Object.ReferenceEquals(v, vertice))
+            return vertice;
         }
 
         return null;
@@ -230,7 +232,7 @@ public class Grafo : Multigrafo{
         List<Aresta> retorno = new List<Aresta>();
 
         foreach(Aresta aresta in arestas){
-            if(aresta.vertices().Contains(v1))
+            if(aresta.seIncide(v))
                 retorno.Add(aresta);
         }
 
@@ -252,27 +254,33 @@ public class Grafo : Multigrafo{
             return false;
         }
 
-        for(int i =0; i < vertices.Count; i++){
+        Aresta aresta = buscaAresta(a);
 
-            if(vertices[i].getArestas().Contains(a))
-                return false;
-
+        if (aresta == null){
+            Console.WriteLine("Aresta passada não foi inserida no grafo");
+            return false;
         }
+        
+        Vertice v1 = aresta.verticeIn();
+
+        Vertice v2 = aresta.verticeOut();
+
+        if(v1.seEhArestaSemDirecao(aresta) && v2.seEhArestaSemDirecao(aresta))
+            return false;
 
         return true;
     }
 
-    public void inserirArestaDirecionada(Vertice v_in, Vertice v_out, Object o){
+    public void inserirArestaDirecionada(Vertice v_out, Vertice v_in, Object o){
 
-        Aresta aresta = new Aresta(v_in, v_out, o);
+        Aresta aresta = new Aresta(v_out, v_in, o);
 
-        for(int i = 0; i < vertices.Count; i++){
+        foreach(Vertice vertice in vertices){
+            if(Object.ReferenceEquals(vertice, v_out))
+                vertice.setArestaOut(aresta);
 
-            if(vertices[i] == v_in)
-                vertices[i].setArestaIn(aresta);
-
-            else if(vertices[i] == v_out)
-                vertices[i].setArestaOut(aresta);
+            else if(Object.ReferenceEquals(vertice, v_in))
+                vertice.setArestaIn(aresta);
 
         }
 
