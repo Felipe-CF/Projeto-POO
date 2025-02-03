@@ -164,7 +164,7 @@ public class Aresta{
         return vertices;
     }
     public override string ToString() {
-        return $"{vertice_in} - {rotulo.ToString()} - {vertice_out}";
+        return $"{vertice_out} - {rotulo.ToString()} - {vertice_in}";
     }
 }
 

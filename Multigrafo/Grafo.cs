@@ -271,9 +271,26 @@ public class Grafo : Multigrafo{
         return true;
     }
 
-    public void inserirArestaDirecionada(Vertice v_out, Vertice v_in, Object o){
+    public Aresta inserirArestaDirecionada(Vertice v_out, Vertice v_in, Object o){
 
-        Aresta aresta = new Aresta(v_out, v_in, o);
+        if(o == null)
+            return null;
+
+        Vertice v1 = buscaVertice(v_out);
+
+        if(v1 == null){
+            Console.WriteLine($"vértice {v1} não inserido");
+            return null;
+        }
+
+        Vertice v2 = buscaVertice(v_in);
+
+        if(v2 == null){
+            Console.WriteLine($"vértice {v2} não inserido");
+            return null;
+        }
+
+        Aresta aresta = new Aresta(v1, v2, o);
 
         foreach(Vertice vertice in vertices){
             if(Object.ReferenceEquals(vertice, v_out))
@@ -285,6 +302,8 @@ public class Grafo : Multigrafo{
         }
 
         arestas.Add(aresta);
+
+        return aresta;
     }
 
 }
